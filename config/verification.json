@@ -1,0 +1,12 @@
+{
+  "profile": "personal-office-offline-v1",
+  "product": "个人办公室",
+  "stages": [
+    "阶段2-1",
+    "阶段3-1",
+    "阶段3-2",
+    "阶段5"
+  ],
+  "model_calls": false,
+  "approved_on": "2026-11-17"
+}

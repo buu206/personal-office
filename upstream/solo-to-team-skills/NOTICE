@@ -1,0 +1,88 @@
+NOTICE
+======
+
+Except for the excluded materials below and third-party components carrying
+their own license or use-scope notice, this repository's own original content
+is licensed under the MIT License (see LICENSE). Initiator: 大冰（Dabing）.
+Public-facing method text may refer to the project lead / controller role.
+
+Current MAS materials / 当前 MAS 材料
+------------------------------------
+The project-authored MAS builder and adapter code, 16 general-purpose role
+cards, six group collaboration templates, original neutral role icons,
+usage documentation and original synthetic demonstration materials are
+licensed under the MIT License. Commercial use is permitted, subject to the
+copyright and permission notice requirements and the other terms in LICENSE.
+The four original skills retain their original text, copyright, license and
+third-party notices.
+
+项目自主编写的 MAS 建队器与适配代码、16份通用岗位卡、6群协作模板、
+原创中性岗位图标、使用说明及原创合成演示材料适用 MIT 许可证，允许商用。
+复制件或实质部分须保留版权及许可声明；完整条件与免责条款见 LICENSE。
+原四个 Skill 的原文、版权、许可证及第三方声明保持。
+
+This is a release candidate. The MIT License grants recipients its stated
+rights without an additional approval requirement.
+The license selection is not a finding that every included or linked material's
+real-world ownership has been independently established.
+
+本材料为发布候选。MIT 授予接收者的权利不附加审批条件。
+本次许可选择不等于已对所有随附或链接材料完成现实权属核查。
+
+Preserved historical documents, including those in nested ZIPs, may state
+that licensing was undecided when they were created. Only for the approved
+project-authored materials listed above does this current scope record the
+later MIT decision. It does not change excluded materials, third-party terms
+or the licensing of user-supplied content. See core/RIGHTS.md in the current product
+(mas/release/current/overlay/core/RIGHTS.md in the maintainer checkout).
+
+Excluded materials / 不在本次授权范围内
+-------------------------------------
+Current-team private display avatars, the owner's personal works and style
+materials, original internal role cards, conversations and authorization
+records, private paths, account data and credentials are excluded. They are
+not authorized for inclusion in the public package by this license decision.
+Host software, services, trademarks and other third-party materials remain
+subject to their respective terms; this project does not license them on
+behalf of their rights holders.
+
+现役团队私用头像、本人作品与风格资料、内部原始岗位卡、聊天与授权记录、
+私人路径和账号资料不在本次授权范围，也不因采用 MIT 而成为公开附件。
+各宿主的软件、服务、商标及其他第三方材料仍按各自条款，本项目不代其授权。
+
+Files under mas/showcase/avatars/ are NOT covered by the MIT License.
+这些头像是我们自己制作的，仅供我们自己使用，不对外授权。
+These avatars were made by our own team and are for our own use only;
+no license is granted to others.
+
+Third-party method inspiration (not a copy of their source trees)
+-----------------------------------------------------------------
+When this project adapts methods or collaboration ideas from other
+MIT-licensed works, the corresponding Copyright notice and full MIT
+license text of those works must be retained below. Do not paste content
+from repositories that use CC BY-NC-ND, have no LICENSE, or use AGPL.
+
+---
+Third-party — obra/superpowers
+MIT License
+
+Copyright (c) 2025 Jesse Vincent
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+---

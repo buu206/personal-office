@@ -1,0 +1,91 @@
+{
+  "web/adapters.js": {
+    "originalSHA256": "3987344de18cf92aa6cd93289712844a15f2b1f590622485eb7ff69e772b875c",
+    "candidateSHA256": "8387e565adb88fa3ce5f5e063029755ea55caed0921fe791465c5651c344eec7",
+    "patch": "openmaus-approval-guidance.patch",
+    "reason": "OpenMaus explanatory text only: package ask is advisory; distinguish Bot defaults, dispatching lead chat, new and reused chats; default Ask does not overwrite explicit Full; Ask is not fully read-only. Existing authorization scope and all exported permissions, roles, groups and other-host data are unchanged.",
+    "previousCandidate": {
+      "sha256": "83b204328246c0d14a175cb7e210c94a366613ead2120a93df475bbf8261fa6b",
+      "patch": "adapter-semantics.patch",
+      "reason": "Final serialized size check; role-defined commissioning; scoped default workflow; DSH full-rule attachments.",
+      "previousCandidate": {
+        "sha256": "5d45cd35d09cdad5a9b26627655a74c5aa43582f051a8cfa73ca5237e152fa22",
+        "patch": "openmaus-final-size.patch"
+      }
+    }
+  },
+  "web/rooms.js": {
+    "originalSHA256": "ff3531b2741c066d2c75278531694c80e871de8716a8bf58cabff0bffabc4ab2",
+    "candidateSHA256": "80112535741ce06f59f4614429e1f40b46decc94f0003d2a2aeed4a6513e7707",
+    "patch": "openmaus-final-size.patch",
+    "reason": "Check actual pretty JSON plus trailing newline against unchanged 4 MiB limit."
+  },
+  "web/workbuddy.js": {
+    "originalSHA256": "8ec8fad8b01d0a1bac939c1f350dd44bea4c9041f6bc9dfbf910ff159ea6810c",
+    "candidateSHA256": "d4983e8417434d3c1b6713274387745f2425d407cdb068d12c86fc4e0d17adae",
+    "patch": "adapter-semantics.patch",
+    "reason": "Separate lead transport from business authority and private return scope; original-executor revisions; full-rule attachments."
+  },
+  "web/grok-plan.js": {
+    "originalSHA256": "46146ad236dab0e0b32054053f99148d1b072ff88d2c645d0d09395d7924e863",
+    "candidateSHA256": "2dea65307ffcaff1e7e18741eab5a29195c9bae6b1b0de8fff2032304e66820c",
+    "patch": "grok-startup-disclosure.v2.patch",
+    "reason": "Instructions text only: disclose observed first-start greeting, reported shared context, input-vs-saved-profile evidence, and pre-start verification for tasks requiring strict isolation. No role mapping, permission field or host logic changed.",
+    "previousCandidate": {
+      "sha256": "4861b114305cfb54252eebdc2db151a1a542ffcf52cae32caae39070c8320de6",
+      "patch": "adapter-semantics.patch",
+      "reason": "Per-role executable group contexts and exact rule-document references, without automatic-loading claims. Match unchanged template groups only; emit only verified document anchors, never bind custom groups automatically.",
+      "previousCandidate": {
+        "sha256": "5a6259df63da70630c194577d481f0063c14ed1e576d0e142394617a3a9e2d89",
+        "patch": "adapter-semantics-before-custom-groups.patch"
+      }
+    }
+  },
+  "web/hosts.js": {
+    "originalSHA256": "afde22d04370da5badce969dfd974acbdb57020ad402b3c5628cb340c20e440a",
+    "candidateSHA256": "5d4e4d732c44a08e74aede2d2b6058138ac81daafe26953c37980a5c1d0ab03c",
+    "patch": "focus-and-selection.patch",
+    "reason": "Restore the focused platform option after synchronous redraw, or strengthen the selected-item border using the existing accent. No export data, host permissions, role or group content changed.",
+    "previousCandidate": {
+      "sha256": "2adc36be157b708f9814524c98aae3106b2d954221f674cbb5c0df056286e9ae",
+      "patch": "openmaus-approval-guidance.patch",
+      "reason": "OpenMaus explanatory text only: package ask is advisory; distinguish Bot defaults, dispatching lead chat, new and reused chats; default Ask does not overwrite explicit Full; Ask is not fully read-only. Existing authorization scope and all exported permissions, roles, groups and other-host data are unchanged.",
+      "previousCandidate": {
+        "sha256": "3383f269b5b7810fe4a211a5ec2bc67ddc4e172582d43285618f07be9a547748",
+        "patch": "adapter-semantics.patch",
+        "reason": "Grok archive includes supplied full rules and truthful per-seat/manual instructions. Match unchanged template groups only; emit only verified document anchors, never bind custom groups automatically.",
+        "previousCandidate": {
+          "sha256": "53b1345e0975dd04b5fc8458b8135094e7041d6303fdff96a3c6120e978d16d9",
+          "patch": "adapter-semantics-before-custom-groups.patch"
+        }
+      }
+    }
+  },
+  "web/builder.css": {
+    "originalSHA256": "3eb5ea9f1ed882bc18047acdf39fdcf629bb7ddb19f48e631be243e7895407d1",
+    "candidateSHA256": "7dddeb2f1940e3e8cb580af5c709ba7f55a445a96fe971dfbe00f17de8370822",
+    "patch": "focus-and-selection.patch",
+    "reason": "Restore the focused platform option after synchronous redraw, or strengthen the selected-item border using the existing accent. No export data, host permissions, role or group content changed.",
+    "previousCandidate": {
+      "sha256": "9ba330d201253e3f0b4ca5696ec0507d58f7d03b3957b0388b9adf77dc75c0c5",
+      "patch": "input-and-role-mentions.patch",
+      "reason": "Respect browser root font size and 16px configuration input; add wrapping/spacing for advisory role-name mentions. No export logic or role text change.",
+      "previousCandidate": {
+        "sha256": "05f78b287f61d965c636c21d08899713ed2bf31b9e0de079375771a7161af899",
+        "patch": "input-typography.patch"
+      }
+    }
+  },
+  "web/core.js": {
+    "originalSHA256": "7c9d067165ad9fdc6f1e80d90a20fb6d68102d074f8fe6217fe48e2a74d2d58f",
+    "candidateSHA256": "46660b2582344c1309f5d77428f117ac198977d434685b7636fbe8404a1fb080",
+    "patch": "body-preservation.patch",
+    "reason": "Preserve responsibility and group-purpose text exactly, including indentation, line endings and Unicode code points; reject non-text or whitespace-only values. Names retain original normalization."
+  },
+  "web/ds-panel.js": {
+    "originalSHA256": "2bd931e59f2fd959c115736b810eddb7756162589e4170aebb966905eccbc7d5",
+    "candidateSHA256": "9a1a8d48dd56f1493b10de8a0c52a381f4459fb016de54925c908d556197c542",
+    "patch": "focus-and-selection.patch",
+    "reason": "Restore focus to the visible receipt input after its focused clear button is removed. Data, receipts and planning semantics are unchanged."
+  }
+}

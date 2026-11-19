@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>宝可梦 · 草地工作营</title><meta name="description" content="在今天，也一起出发吧里，和你的机器人团队一起推进项目。本机模拟演示。">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="meeting.css"><link rel="stylesheet" href="console.css"><link rel="stylesheet" href="pokemon.css"><link rel="stylesheet" href="trainer.css">
+</head>
+<body>
+  <a class="skip" href="#task-input">跳到任务输入</a>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="个人办公室首页"><span class="brand-mark" aria-hidden="true"></span><span>草地工作营<small>POKÉMON CAMP</small></span></a>
+    <nav aria-label="工作台导航"><span class="nav-current">协作空间</span><a href="tools/team-16/index.html" target="_blank" rel="noopener">团队配置 <span>↗</span></a><a href="tools/start-with-files/index.html" target="_blank" rel="noopener">素材打包 <span>↗</span></a><a href="tools/update-team/index.html" target="_blank" rel="noopener">配置更新 <span>↗</span></a></nav>
+    <div class="header-state"><span class="demo-badge"><i></i>模拟演示</span><span class="local-label">仅本机保存</span><button class="round-button" id="settings-open" aria-label="打开存档与团队设置">⚙</button></div>
+  </header>
+  <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+  <main class="workspace">
+    <aside class="projects-panel panel" aria-label="项目与数据">
+      <div class="panel-heading"><div><span class="eyebrow">QUEST LOG</span><h1>委托图鉴</h1></div></div><div class="monitor"><div class="gauge"><b id="gauge-value">0</b><small>%</small></div><div class="monitor-caption"><span>当前项目进度</span><strong id="monitor-state">等待输入</strong></div></div>
+      <div class="metrics"><div><strong id="project-count">0</strong><span>项目总数</span></div><div><strong id="complete-count">0</strong><span>已完成</span></div></div>
+      <div class="section-label"><h2>进行中的冒险</h2><button class="icon-button" id="new-project" aria-label="输入新任务">＋</button></div>
+      <div id="project-list" class="project-list"></div>
+      <div class="left-footer"><span class="eyebrow">训练师背包</span><a href="tools/team-16/index.html" target="_blank" rel="noopener"><span>◇</span> 编辑我的团队 <span>↗</span></a><button id="export-main"><span>↓</span> 导出工作台存档</button><p>项目、草稿与进度保存在此浏览器。定期导出，换设备也能继续。</p><span id="save-status" class="save-status">等待本地存档</span></div>
+    </aside>
+
+    <section class="office-panel" aria-label="宝可梦协作营地">
+      <div class="office-heading"><div><span class="eyebrow">POKÉMON · TEAM CAMP</span><h2>今天，也一起出发吧<span class="tiny-dot"></span></h2></div><div class="room-count"><span id="team-count">5</span> 位成员 <span class="separator">/</span> <span id="room-label">协作室 01</span></div></div>
+      <section class="pipeline" aria-label="任务工作流">
+        <div class="pipeline-head"><h3>协作路线</h3><span id="flow-summary">等待任务</span></div>
+        <div id="flow-nodes" class="flow-nodes"></div>
+      </section>
+      <div class="scene" id="scene">
+        <div class="scene-shade"></div>
+        <div class="room-screen" aria-label="中央项目进度屏"><div class="screen-top"><span><i></i>任务进展</span><span id="screen-status">等待任务</span></div><h3 id="screen-title">给团队一个新目标</h3><div class="screen-progress"><strong id="screen-percent">0<span>%</span></strong><div><span id="screen-caption">从你的第一个想法开始</span><div class="track"><span id="screen-bar"></span></div></div></div><div class="screen-stages" id="screen-stages"></div></div>
+        
+        <div id="robots" class="robots"></div>
+        <div class="scene-caption"><span class="live-dot"></span><span id="scene-caption">团队就位，等待你的灵感</span><span class="scene-mode">本地模拟 · 无真实 AI 调用</span></div>
+      </div>
+      <div class="room-toolbar"><span>点击伙伴或卡片，查看它负责的工作</span><div><button id="room-prev" class="pager" aria-label="上一间协作室">←</button><span id="room-page">01 / 01</span><button id="room-next" class="pager" aria-label="下一间协作室">→</button></div></div>
+      <section class="party-section" aria-label="伙伴卡册"><div class="party-heading"><h3>我的伙伴</h3><span>选择卡片，查看分工</span></div><div id="party-cards" class="party-cards"></div></section>
+      <section class="role-card panel" aria-label="当前角色详情"><div id="role-emblem" class="role-emblem">01</div><div class="role-copy"><div><h3 id="role-title">统筹官</h3><span id="role-category" class="role-tag">统筹协调</span></div><p id="role-duty">把你的想法拆解为清晰的任务。</p></div><details><summary>完整职责</summary><p id="role-full-duty"></p></details></section>
+    </section>
+
+    <aside class="task-panel panel" aria-label="任务输入与团队动态">
+      <div class="panel-heading"><div><span class="eyebrow">TRAINER’S MESSAGE</span><h2>交给伙伴的委托</h2></div><span class="small-ball" aria-hidden="true"></span></div>
+      <form id="task-form">
+        <label for="task-input" class="file-tab"><b aria-hidden="true">›</b> 新的委托 <span>任务输入</span></label>
+        <div class="input-wrap"><div class="code-prompt">训练师，今天想完成什么？</div><textarea id="task-input" rows="4" maxlength="2000" placeholder="输入任务目标、交付物和要求…" aria-describedby="task-help"></textarea><div class="editor-foot"><button type="button" id="sample-task">载入示例 ↗</button><span id="char-count">0 / 2000</span></div></div>
+        <p id="task-help">写下目标，让伙伴们开始一次协作演示。</p><button type="submit" class="primary" id="start-button"><span aria-hidden="true">▷</span> 出发！ <kbd id="run-shortcut">Ctrl ↵</kbd></button>
+      </form>
+      <section class="output-section" aria-labelledby="output-heading">
+        <div class="activity-heading"><h3 id="output-heading">冒险记录</h3><button class="text-button" id="pause-button" disabled>暂停</button></div>
+        <div class="trace-box"><div class="trace-file"><b aria-hidden="true">✦</b> 伙伴动态 <button type="button" id="follow-node" hidden>跟随当前节点</button></div><pre id="node-output" aria-label="所选节点的模拟状态"></pre></div>
+        <div class="activity" id="activity" aria-label="模拟运行记录"></div>
+        <div id="result-card" class="result-card" hidden><strong>运行记录已就绪</strong><button id="export-result">下载本次模拟记录 ↓</button></div>
+      </section>
+    </aside>
+  </main>
+  
+  <dialog id="settings-dialog"><div class="dialog-heading"><h2>存档与团队</h2><button class="icon-button" id="settings-close" aria-label="关闭设置">×</button></div><p>本 Demo 的进度是模拟数据，所有操作均在本机完成。</p><h3>备份与恢复</h3><div class="settings-actions"><button id="export-settings">导出当前存档</button><label class="file-button" for="import-state">导入存档 JSON</label><input id="import-state" type="file" accept=".json,application/json"><button id="export-damaged" hidden>导出损坏原件</button></div><p class="muted">最大8 MiB。导入前自动保留当前存档；恢复后演示暂停。</p><h3>展示团队</h3><label for="team-select">选择预置团队</label><select id="team-select"><option value="demo">五人演示团队</option><option value="full">上游完整16席团队</option></select><p class="muted">最多5位成员同屏，通过箭头切换房间；已有项目保留。</p><label class="file-button" for="import-team">导入自己的团队配置</label><input id="import-team" type="file" accept=".json,application/json"><p class="muted">使用团队配置工具导出的 JSON，最大8 MiB。角色名与职责将一起载入。</p><p id="settings-status" role="status" class="muted"></p></dialog>
+  <script src="team-core.js"></script><script type="module" src="app.mjs"></script>
+</body>
+</html>

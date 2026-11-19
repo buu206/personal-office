@@ -1,0 +1,11 @@
+{
+  "name": "personal-office-demo",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "lint": "node --check app.mjs && node --check state.mjs && node --check build.mjs && node --check studio.mjs && node --check ai-client.mjs && node --check ai-state.mjs && node --check studio-shell.mjs",
+    "test": "node test.mjs",
+    "build": "node build.mjs"
+  }
+}

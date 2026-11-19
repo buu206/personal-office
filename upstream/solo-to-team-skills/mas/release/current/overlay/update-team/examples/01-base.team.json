@@ -1,0 +1,50 @@
+{
+  "format": "solo-to-team.definition",
+  "version": "1.0.0",
+  "id": "paper-boat-workshop",
+  "name": "纸船工坊",
+  "roles": [
+    {
+      "id": "lead",
+      "name": "工坊统筹",
+      "responsibility": "收件、派工，把独审过的成品交回。",
+      "avatar": null
+    },
+    {
+      "id": "maker",
+      "name": "折页编辑",
+      "responsibility": "用给定的文字和折线说明制作可打开的活动折页。",
+      "avatar": null
+    },
+    {
+      "id": "reviewer",
+      "name": "独立核稿",
+      "responsibility": "打开制作席提交的折页，核对文案和折线位置，给出带版本的结论。",
+      "avatar": null
+    },
+    {
+      "id": "keeper",
+      "name": "纸样保管",
+      "responsibility": "登记实际用到的纸张样本。",
+      "avatar": null
+    }
+  ],
+  "groups": [
+    {
+      "id": "handoff",
+      "name": "交件桌",
+      "purpose": "记录当前样稿与接手人。",
+      "members": [
+        "lead",
+        "maker",
+        "keeper"
+      ]
+    }
+  ],
+  "workflow": {
+    "dispatch": "lead",
+    "produce": "maker",
+    "review": "reviewer",
+    "deliver": "lead"
+  }
+}

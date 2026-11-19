@@ -1,0 +1,210 @@
+--- rc12/source/web/app.js
++++ rc13/source/web/app.js
+@@ -87,7 +87,11 @@
+     mode=next;selected=next==='role'?team.roles[0]?.id:next==='group'?team.groups[0]?.id:null;
+     render();
+   }
+-  function renderSide() {
++  function renderSide() {return FocusRetention.preserve([$('sidebar')],drawSide);}
++  function selectedPick(){
++    return [...$('sidebar').querySelectorAll('[data-key]')].find(el=>el.dataset.key===selected)||$('add-item');
++  }
++  function drawSide() {
+     for(const b of document.querySelectorAll('button[data-mode]')) b.setAttribute('aria-current',String(b.dataset.mode===mode));
+     const side=$('sidebar');side.replaceChildren();
+     if(mode==='flow') {
+@@ -117,7 +121,9 @@
+     const prefix=role?tr('新席位 ','New role '):tr('新群组 ','New group ');
+     const names=new Set(list.map(x=>x.name));let j=1;while(names.has(prefix+j))j++;
+     const value=role?{id,name:prefix+j,responsibility:'',avatar:null}:{id,name:prefix+j,purpose:'',members:[]};
+-    list.push(value);selected=id;edited();render();$('item-name').focus();$('item-name').select();
++    list.push(value);selected=id;edited();render(active=>active.id==='add-item'?$('item-name'):null);
++    if(document.activeElement!==$('item-name'))$('item-name').focus();
++    $('item-name').select();
+   }
+   function field(parent,id,label,value,long,change) {
+     const wrap=node('div',null,'field'), lab=node('label',label);lab.htmlFor=id;
+@@ -127,7 +133,7 @@
+   }
+   function undoDelete(){
+     if(!undo)return;
+-    const old=undo;team=old.team;mode=old.mode;selected=old.id;edited();render();status('已撤销删除，记得保存。','Deletion undone. Save your changes.');
++    const old=undo;team=old.team;mode=old.mode;selected=old.id;edited();render(active=>active.id==='undo-delete'?selectedPick():null);status('已撤销删除，记得保存。','Deletion undone. Save your changes.');
+   }
+   function removeItem() {
+     const obj=item();if(!obj)return;
+@@ -146,7 +152,7 @@
+       team.roles=team.roles.filter(r=>r.id!==obj.id);
+       team.groups.forEach(g=>{g.members=g.members.filter(id=>id!==obj.id);});
+     } else team.groups=team.groups.filter(g=>g.id!==obj.id);
+-    selected=objects()[0]?.id;edited();undo=saved;render();
++    selected=objects()[0]?.id;edited();undo=saved;render(active=>active.id==='delete-item'?selectedPick():null);
+     const groupNoticeZh=affectedGroups.length?' 同时退出 '+affectedGroups.length+' 个群：'+affectedGroups.join('、')+'。':'';
+     const groupNoticeEn=affectedGroups.length?' Also removed from '+affectedGroups.length+' group'+(affectedGroups.length===1?'':'s')+': '+affectedGroups.join(', ')+'.':'';
+     if(roleMentionCount)status('已移除；上方列出仍提及未选岗位的职责或群说明，请核对。'+groupNoticeZh,'Removed. Check the notice above for duties or group notes that still name unselected roles.'+groupNoticeEn);
+@@ -185,7 +191,7 @@
+     const input=node('input');input.type='file';input.id='avatar-file';input.accept='image/png,image/jpeg,image/webp';input.hidden=true;
+     input.addEventListener('change',()=>{const f=input.files[0];input.value='';attachAvatar(f,r);});
+     actions.append(button(tr('选择头像','Choose avatar'),()=>input.click(),null,'choose-avatar'),input);
+-    if(r.avatar)actions.append(button(tr('移除头像','Remove avatar'),()=>{avatarReads.set(r,(avatarReads.get(r)||0)+1);r.avatar=null;edited();render();},null,'remove-avatar'));
++    if(r.avatar)actions.append(button(tr('移除头像','Remove avatar'),()=>{avatarReads.set(r,(avatarReads.get(r)||0)+1);r.avatar=null;edited();render(active=>active.id==='remove-avatar'?$('choose-avatar'):null);},null,'remove-avatar'));
+     ctrl.append(node('p',tr('PNG / JPEG / WebP，单张 ≤ 512 KiB，边长 ≤ 2048 像素。','PNG / JPEG / WebP, up to 512 KiB and 2048 pixels per side.'),'explain'),actions);
+     row.append(ctrl);container.append(row);
+     field(container,'item-description',tr('岗位职责','Responsibility'),r.responsibility,true,v=>{r.responsibility=v;edited();});
+@@ -213,9 +219,10 @@
+     }
+     container.append(grid);
+   }
+-  function render() {
++  function render(focusTarget) {
++    return FocusRetention.preserve([$('sidebar'),$('editor')],()=>{
+     renderRoleMentions();
+-    renderSide();const editor=$('editor');editor.replaceChildren();if(mode==='flow'){flowForm(editor);return;}
++    drawSide();const editor=$('editor');editor.replaceChildren();if(mode==='flow'){flowForm(editor);return;}
+     const obj=item();const heading=node('h2',obj?.name||tr('新增群组后编辑','Add a group to edit it'));heading.id='editor-title';editor.append(heading);
+     if(!obj)return;
+     editor.append(node('p',tr('固定标识 ','Stable ID ')+obj.id,'meta'));
+@@ -224,6 +231,7 @@
+     });
+     if(mode==='role')roleForm(editor,obj);else groupForm(editor,obj);
+     const actions=node('div',null,'actions danger');actions.append(button(mode==='role'?tr('移除席位','Remove role'):tr('移除群组','Remove group'),removeItem,null,'delete-item'));editor.append(actions);
++    },focusTarget);
+   }
+   function showPending(){
+     $('import-banner').hidden=false;
+@@ -248,8 +256,10 @@
+   }
+   function acceptFile(){
+     if(!pending)return;
++    const focusFrom=document.activeElement===$('apply-import')?$('apply-import'):null;
+     const legacy=pending.legacy;team=pending.team;pending=null;dirty=legacy;revision++;undo=null;platformPanel?.reset();
+     $('import-banner').hidden=true;$('team-name').value=team.name;$('team-id').value=team.id;switchMode('role');
++    FocusRetention.moveFromHidden(focusFrom,$('team-name'));
+     const noticeZh=roleMentionCount?' 上方有未选岗位提及提醒，请核对。':'',noticeEn=roleMentionCount?' Check the unselected-role notice above.':'';
+     if(legacy)status('已从原包提取席位、群籍与交接，请另存编辑器文件。'+noticeZh,'Mapped the starter’s roles, groups and workflow. Save a new editor file.'+noticeEn);
+     else status('已从文件打开，可继续编辑。'+noticeZh,'Opened from file. You can continue editing.'+noticeEn);
+@@ -281,7 +291,11 @@
+   });
+   platformPanel=UnifiedHosts.mount({getTeam:()=>team,getRevision:()=>revision,isBusy:()=>avatarBusy>0,language,offerDownload});
+   $('apply-import').addEventListener('click',acceptFile);
+-  $('cancel-import').addEventListener('click',()=>{pending=null;importEpoch++;$('import-banner').hidden=true;});
++  $('cancel-import').addEventListener('click',()=>{
++    const focusFrom=document.activeElement===$('cancel-import')?$('cancel-import'):null;
++    pending=null;importEpoch++;$('import-banner').hidden=true;
++    FocusRetention.moveFromHidden(focusFrom,$('import'));
++  });
+   window.addEventListener('hashchange',()=>{langLabels();render();});
+   window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
+   langLabels();render();
+--- rc12/source/web/hosts.js
++++ rc13/source/web/hosts.js
+@@ -115,8 +115,10 @@
+       sel.append(pick('keep',t('先保留原图，暂停本端导出','Keep originals; hold this export'),policy==='keep'),pick('derive',t('仅为本次导出制作适配副本（可能缩放、白底 JPEG）','Create export copies (may resize or use JPEG on white)'),policy==='derive'),pick('omit',t('只在这份导出中省略不合规头像','Omit incompatible avatars from this export'),policy==='omit'));
+       sel.onchange=()=>{policy=sel.value;changed();};f.append(sel,make('small',t('合规头像沿用原字节；原中性文件和编辑中的原图不变。WorkBuddy 被省略的自选图使用随包岗位示意图。','Compatible pictures stay byte-identical. The neutral file and draft keep the originals. WorkBuddy substitutes a bundled role icon for an omitted picture.')));parent.append(f);
+     }
+-    function sync(){
+-      const team=getTeam(), opt=$('host-options');opt.replaceChildren();
++    function sync(focusTarget){
++      const opt=$('host-options');
++      return FocusRetention.preserve([opt],()=>{
++      const team=getTeam();opt.replaceChildren();
+       $('hosts-title').textContent=t('从这份团队配置导出','Export this team');
+       $('hosts-hint').textContent=t('选一个平台。你可以继续编辑，或切换平台导出同一支团队，无需再次打开配置。','Choose a platform. Keep editing or switch platforms to export this same team without reopening the file.');
+       for(const b of document.querySelectorAll('[data-host]'))b.setAttribute('aria-pressed',String(b.dataset.host===host));
+@@ -145,6 +147,7 @@
+         opt.append(label,input,make('small',t('1–32 位小写字母、数字或短横线，首位为字母或数字。','Use 1–32 lowercase letters, digits or hyphens, starting with a letter or digit.')));
+       }
+       images(affected,opt);availability();
++      },focusTarget);
+     }
+     async function download(){
+       if(busy || isBusy())return;let unchanged=false;
+--- rc12/source/web/ds-panel.js
++++ rc13/source/web/ds-panel.js
+@@ -124,7 +124,7 @@
+       line(ex,t('可选，导入同一方案的 receipts.json','Optional: receipts.json from the same plan'),journalInput);
+       if(journalName){
+         ex.append(el('small',journalName));const clear=el('button',t('清除续办记录','Clear receipt file'));clear.type='button';
+-        clear.onclick=()=>{readToken++;reading=false;journal=null;journalName='';invalidate();rerender();};ex.append(clear);
++        clear.onclick=()=>{readToken++;reading=false;journal=null;journalName='';invalidate();rerender(active=>active===clear?byID('ds-receipts'):null);};ex.append(clear);
+       }
+       ex.append(el('small',t('保留原计划。批次、席位、头像、群或管理员变化后须另立计划。旧独立规划器的回执随原计划续办。','Keep the original plan. Batch, roster, portrait or room/admin changes require a separate plan. Resume earlier standalone-planner batches with their original pack.')));
+       const view=el('button',t('查看计划','Preview plan'));view.id='ds-preview';view.type='button';view.onclick=preview;parent.append(view);
+--- rc12/source/web/builder.css
++++ rc13/source/web/builder.css
+@@ -5,7 +5,7 @@
+ .files,.actions{display:flex;gap:8px;flex-wrap:wrap}.files{flex-shrink:0}.team{display:grid;grid-template-columns:auto minmax(120px,1fr) minmax(190px,1fr);gap:11px;align-items:center;background:var(--surface);border:1px solid var(--line);padding:13px 17px;border-radius:6px 6px 0 0}.team input{font-weight:650}.team label,.field>label{font-weight:650}.team p{text-align:right;font-size:.89rem}.warning{color:var(--red)!important}
+ button,input,textarea,select{font:inherit;color:var(--ink)}button{cursor:pointer;min-height:38px;border:1px solid #809693;border-radius:4px;background:#fff;padding:5px 12px}.primary{background:var(--accent);color:#fff;border-color:var(--accent)}button:hover{filter:brightness(.95)}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #1d72a0;outline-offset:2px}input[type=text],textarea,select{max-width:100%;width:100%;border:1px solid #99aeaa;background:#fff;border-radius:3px;padding:7px 9px}
+ textarea{resize:vertical;min-height:92px}.workbench{display:grid;grid-template-columns:minmax(230px,.76fr) minmax(0,1.75fr);border:1px solid var(--line);border-top:0;background:#fff;min-height:450px;border-radius:0 0 6px 6px}.workbench aside{padding:18px 14px;background:#f5f8f6;border-right:1px solid var(--line)}nav{display:flex;flex-wrap:wrap;gap:3px;border-bottom:1px solid var(--line);padding-bottom:12px}nav button{border:0;background:transparent;min-width:45px}nav [aria-current=true]{background:var(--accent);color:white}
+-#sidebar{padding-top:10px}.pick{display:flex;align-items:center;gap:9px;width:100%;text-align:left;overflow-wrap:anywhere;border:1px solid transparent;background:transparent;margin:1px 0;padding:6px 7px}.pick[aria-current=true]{background:var(--faint);border-color:#a8c2ba}.dot,.portrait{display:grid;place-items:center;background:#d4e1dc;color:#224c43;flex-shrink:0}.dot{width:30px;height:30px;font-size:.75rem;border-radius:50%;overflow:hidden}.portrait{width:70px;height:70px;border-radius:9px;overflow:hidden}.dot img,.portrait img{width:100%;height:100%;object-fit:cover}.add{margin:12px 4px 4px;background:transparent;border-style:dashed}
++#sidebar{padding-top:10px}.pick{display:flex;align-items:center;gap:9px;width:100%;text-align:left;overflow-wrap:anywhere;border:1px solid transparent;background:transparent;margin:1px 0;padding:6px 7px}.pick[aria-current=true]{background:var(--faint);border-color:var(--accent)}.dot,.portrait{display:grid;place-items:center;background:#d4e1dc;color:#224c43;flex-shrink:0}.dot{width:30px;height:30px;font-size:.75rem;border-radius:50%;overflow:hidden}.portrait{width:70px;height:70px;border-radius:9px;overflow:hidden}.dot img,.portrait img{width:100%;height:100%;object-fit:cover}.add{margin:12px 4px 4px;background:transparent;border-style:dashed}
+ #editor{padding:22px 26px 25px;min-width:0}#editor h2{font-size:1.35rem;line-height:1.3;overflow-wrap:anywhere}#editor h3{font-size:1rem}.meta{font:13px/1.5 ui-monospace,monospace;margin-top:4px;overflow-wrap:anywhere}.field{display:grid;gap:5px;margin-top:13px}.avatar-row{display:flex;gap:12px;align-items:center;margin-top:18px}.avatar-row .actions{margin-top:5px}.explain,.privacy{font-size:.88rem}.privacy{margin:14px 0 30px}.actions.danger{margin-top:20px}.danger button{color:var(--red);border-color:#d0aba4}.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.checks label{display:flex;gap:8px;align-items:center;overflow-wrap:anywhere}.checks input{width:16px;height:16px;accent-color:var(--accent)}.flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 15px}.banner{border:1px solid #b8893a;background:#fff6df;padding:10px 12px}.banner span{margin-right:10px}
+ [hidden]{display:none!important}@media(max-width:760px){.bar,main{width:calc(100% - 28px)}.heading{display:block;margin:20px 0 15px}.files{margin-top:14px}.team{grid-template-columns:auto minmax(0,1fr);padding:10px}.team p{grid-column:1/-1;text-align:left}.workbench{grid-template-columns:1fr}.workbench aside{border-right:0;border-bottom:1px solid var(--line);padding:10px}#sidebar{max-height:200px;overflow:auto}#editor{padding:17px 13px}.checks,.flow{grid-template-columns:1fr}.avatar-row{align-items:start}.heading p{font-size:.94rem}}
+ 
+--- rc12/source/web/index.html
++++ rc13/source/web/index.html
+@@ -15,6 +15,7 @@
+   <script src="grok-plan.js" defer></script>
+   <script src="ds-planner.js" defer></script>
+   <script src="ds-runbook.js" defer></script>
++  <script src="focus-retention.js" defer></script>
+   <script src="ds-panel.js" defer></script>
+   <script src="hosts.js" defer></script>
+   <script src="team-preset.js" defer></script>
+--- /dev/null
++++ rc13/source/web/focus-retention.js
+@@ -0,0 +1,54 @@
++'use strict';
++// Synchronous DOM replacement only. Capture at redraw time, never before an await.
++const FocusRetention=(()=>{
++  const keys=['key','member','room','reply','dsSeat','dsGroup','dsAdmin','dsMode'];
++  const idle=active=>!active||active===document.body||active===document.documentElement;
++  function identity(el){
++    if(el.id)return {id:el.id};
++    for(const key of keys)if(el.dataset?.[key]!==undefined)return {key,value:el.dataset[key]};
++    return null;
++  }
++  function matching(roots,key){
++    if(!key)return null;
++    for(const root of roots)for(const el of root.querySelectorAll('[id],[data-key],[data-member],[data-room],[data-reply],[data-ds-seat],[data-ds-group],[data-ds-admin],[data-ds-mode]')){
++      if(key.id?el.id===key.id:el.dataset?.[key.key]===key.value)return el;
++    }
++    return null;
++  }
++  function selection(el){
++    try{
++      if(Number.isInteger(el.selectionStart)&&Number.isInteger(el.selectionEnd))
++        return [el.selectionStart,el.selectionEnd,el.selectionDirection];
++    }catch(_){} // Some native controls do not expose text selection.
++    return null;
++  }
++  function focus(el,range){
++    if(!el?.isConnected||el.disabled)return;
++    for(let p=el;p;p=p.parentElement)if(p.hidden)return;
++    // A rebuilt resume panel may have collapsed. Make its focused descendant visible.
++    for(let p=el.parentElement;p;p=p.parentElement)if(p.tagName==='DETAILS')p.open=true;
++    el.focus();
++    if(range&&typeof el.setSelectionRange==='function'){
++      try{el.setSelectionRange(...range);}catch(_){} // File/number controls reject this API.
++    }
++  }
++  function preserve(roots,update,target){
++    const active=document.activeElement,inside=active&&roots.some(root=>root?.contains(active));
++    const key=inside?identity(active):null,range=inside?selection(active):null;
++    const result=update();
++    // An intact control, or an explicit new focus set during the redraw, wins.
++    if(inside&&!active.isConnected&&idle(document.activeElement)){
++      const explicit=typeof target==='function'?target(active):null;
++      focus(explicit||matching(roots,key),explicit?null:range);
++    }
++    return result;
++  }
++  function moveFromHidden(from,to){
++    if(!from)return;
++    const active=document.activeElement;
++    if(active!==from&&!idle(active))return;
++    for(let p=from;p;p=p.parentElement)if(p.hidden){focus(to);return;}
++  }
++  return {preserve,moveFromHidden};
++})();
++

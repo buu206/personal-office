@@ -1,0 +1,16 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'"><title>更新我的团队 · 一人成阵</title><link rel="stylesheet" href="update.css"></head>
+<body><header class="strip"><span data-i="brand">一人成阵</span><button id="lang" lang="en">English</button></header>
+<main><div class="intro"><p class="kicker" data-i="local">本地配置更新</p><h1 data-i="title">更新我的团队</h1><p data-i="intro">把新版改善带进自己的队伍。原来的岗位名、头像和群籍可以逐项保留。</p></div>
+<section aria-labelledby="inputs-title" class="panel"><h2 id="inputs-title" data-i="choose">选择同一支团队的三份配置</h2>
+<p class="history-note" data-i="history">本页只比较内容；团队ID相同不能证明三份文件有共同母版。请确认母版来源。</p>
+<div class="inputs">
+ <div><label for="base" data-i="base">原母版</label><p data-i="baseHint">你最初据以改队伍的版本</p><input type="file" id="base" aria-describedby="base-note" accept=".json,application/json"><small id="base-note" aria-live="polite"></small></div>
+ <div><label for="mine" data-i="mine">我的队伍</label><p data-i="mineHint">当前实际想保留的版本</p><input type="file" id="mine" aria-describedby="mine-note" accept=".json,application/json"><small id="mine-note" aria-live="polite"></small></div>
+ <div><label for="next" data-i="next">候选新版</label><p data-i="nextHint">你想比较的上游版本</p><input type="file" id="next" aria-describedby="next-note" accept=".json,application/json"><small id="next-note" aria-live="polite"></small></div>
+</div>
+<div class="actions"><button id="compare" class="main" data-i="compare" disabled>比较三份文件</button><button id="clear" data-i="clear">清空本页</button></div>
+</section>
+<section id="review" class="panel" hidden aria-labelledby="review-title"><h2 id="review-title" data-i="review">逐项决定</h2><p id="overview"></p><div id="decisions"></div><details id="retained"><summary id="retained-title"></summary><div id="unchanged"></div></details></section>
+<section class="finish"><div id="status" role="status" aria-live="polite"></div><button id="download" class="main" data-i="download" disabled>下载新的团队配置</button></section>
+<footer><p data-i="scope">页面在本地比较，另存新的 JSON。每份最多 32 MiB、200 席及 200 群。宿主账号、权限和运行中的任务需在原平台处理。</p><p data-i="manual">可比对写在岗位职责和群用途中的说明。单独的手册文件及平台私有字段不属于这个配置格式。</p></footer></main>
+<script src="../../team-16/source/web/core.js"></script><script src="merge.js"></script><script src="app.js"></script></body></html>

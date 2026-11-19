@@ -1,0 +1,11 @@
+{
+  "web/ds-runbook.js": "5fa8f67dc5259f7ff8bd9705fa554ffb4529c254e5ae5afd01c988a8508f83fd",
+  "web/zip-store.js": "c74a7e4f0f4b8577bf59c87ffbc6142d00b3bc61051f40548baa97641dbe7f9e",
+  "web/template.js.in": "61e1ad548f4e0da536e7271e68d501a4c9ea7c262bee1a4736537d14e0f0623c",
+  "web/ds-planner.js": "e01047fd6d47644c61190d8ad57ef63227380ad7d88665c8aa44ed3819e31953",
+  "assets/workbuddy.json": "7cc53510bbee2e1a2bd0176c3377356fc2d91a78a3555be5f308fbe190de042f",
+  "assets/icons/team.png": "9ceb6d41b2ebb6ee57255d2819fd5e346143aec848451eb44b0a630a8c0b581b",
+  "assets/icons/review.png": "a6f94f07efc4b7059596e06756d33af45f7fc8db78954c7445334ec2bd0ac42b",
+  "assets/icons/production.png": "f784f80784c394e909751754fa087fb233972f413ea5ef414d2be4fd774dee42",
+  "assets/icons/team-lead.png": "65f639a657e1610acb2c7a21c04257bc6943770fbab654ee7c6033582968e2ec"
+}

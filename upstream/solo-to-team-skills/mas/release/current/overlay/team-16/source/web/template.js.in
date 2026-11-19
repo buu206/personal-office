@@ -1,0 +1,2 @@
+'use strict';
+const DefaultTeamAssets=__WORKBUDDY_TEMPLATE__;

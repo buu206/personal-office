@@ -1,0 +1,35 @@
+# Local credentials and runtime data
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+.venv/
+__pycache__/
+.pytest_cache/
+node_modules/
+.DS_Store
+data/
+*.sqlite
+*.sqlite3
+*.sqlite3-*
+*.db
+*.db-*
+*.log
+*.pem
+*.key
+.coverage
+htmlcov/
+# Reproducible build output
+frontend/dist/
+frontend/.build-next/
+# Local workflow records and generated acceptance evidence
+/docs/evidence/
+/docs/设计参考/
+/docs/项目状态.md
+/docs/本阶段任务.md
+/docs/流程状态.txt
+/docs/流程历史.txt
+/docs/本机开发说明.md
+/docs/阶段文档/真实AI样例评分*.md

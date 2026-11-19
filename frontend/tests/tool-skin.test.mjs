@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import {skinTool} from '../tools/skin.mjs';
+const root=new URL('../../upstream/solo-to-team-skills/mas/release/current/overlay/',import.meta.url);
+const css=readFileSync(new URL('../tools/theme.css',import.meta.url),'utf8');
+for(const name of ['team-16','start-with-files','update-team'])test(name+': themed tool preserves scripts and CSP integrity',()=>{
+ const input=readFileSync(new URL(name+'/index.html',root),'utf8'),out=skinTool(input,name,css);
+ const originals=[...input.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(x=>x[1]);
+ const scripts=[...out.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)].map(x=>x[1]);
+ assert.equal(scripts.length,originals.length);
+ assert.equal(scripts.filter((s,i)=>s!==originals[i]).length,name==='start-with-files'?1:0);
+ const policy=out.match(/content="([^"]*style-src [^"]*)"/)[1];
+ for(const script of scripts)assert.ok(policy.includes("'sha256-"+createHash('sha256').update(script).digest('base64')+"'"));
+ for(const [,style] of out.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,'').matchAll(/<style[^>]*>([\s\S]*?)<\/style>/g))assert.ok(policy.includes("'sha256-"+createHash('sha256').update(style).digest('base64')+"'"));
+ assert.equal((out.match(/aria-current="page"/g)||[]).length,1);
+ assert.ok(out.includes('href="../../index.html"'));assert.ok(!policy.includes("'unsafe-inline'"));
+});
+test('unknown upstream structure fails instead of silently shipping a broken tool',()=>assert.throws(()=>skinTool('<html></html>','team-16',css)));

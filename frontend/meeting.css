@@ -1,0 +1,101 @@
+/* Seat anchors follow the projected edges of the meeting table. */
+.scene {
+  background-image: url('assets/conference.png');
+  aspect-ratio: 4 / 3;
+  min-height: 0;
+  max-height: none;
+}
+
+.scene .room-screen {
+  left: 32%;
+  top: 16%;
+  width: 36%;
+  height: 21.4%;
+}
+
+.scene .robot {
+  inset: auto;
+  left: var(--seat-x);
+  bottom: var(--seat-y);
+  width: var(--seat-width);
+  z-index: var(--depth);
+  transform: translateX(-50%);
+}
+.robot:nth-child(1) { --seat-x: 33%; --seat-y: 39%; --seat-width: 15%; --depth: 2; --delay: -2s; }
+.robot:nth-child(2) { --seat-x: 25%; --seat-y: 29%; --seat-width: 20%; --depth: 3; --delay: -7s; }
+.robot:nth-child(3) { --seat-x: 21%; --seat-y: 6%; --seat-width: 24%; --depth: 4; --delay: -4s; }
+.robot:nth-child(4) { --seat-x: 77%; --seat-y: 6%; --seat-width: 25%; --depth: 4; --delay: -9s; }
+.robot:nth-child(5) { --seat-x: 71.5%; --seat-y: 36%; --seat-width: 18%; --depth: 2; --delay: -5s; }
+/* Put the place cards towards the table so a nearer chair cannot cover them. */
+.scene .robot-name { position: relative; left: 45%; }
+.scene .robot:nth-child(n+4) .robot-name { left: -45%; }
+.figure { display: block; transform: scaleX(var(--turn)); pointer-events: none; }
+.scene .robot-art {
+  aspect-ratio: 0.86;
+  position: relative;
+  background-image: none;
+  animation: none;
+}
+.scene .robot-art::before,
+.scene .robot-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--robot-image) center bottom / contain no-repeat;
+}
+/* The chair and feet stay planted while the head and upper body move. */
+.scene .robot-art::before {
+  mask-image: linear-gradient(to bottom, transparent 41%, black 53%);
+}
+.scene .robot-art::after {
+  mask-image: linear-gradient(to bottom, black 41%, transparent 53%);
+  transform-origin: 50% 49%;
+  animation: listening 10s ease-in-out var(--delay) infinite;
+}
+.scene .robot-working .robot-art::after {
+  animation: var(--gesture) var(--pace) ease-in-out var(--delay) infinite;
+}
+.robot[data-action=coordinate] { --gesture: check-tablet; --pace: 4.7s; }
+.robot[data-action=read] { --gesture: follow-line; --pace: 4.1s; }
+.robot[data-action=type] { --gesture: typing; --pace: 2.8s; }
+.robot[data-action=draw] { --gesture: sketch; --pace: 3.6s; }
+.robot[data-action=scan] { --gesture: check-list; --pace: 4.4s; }
+@keyframes listening {
+  0%, 35%, 60%, 100% { transform: none; }
+  46% { transform: rotate(1.6deg) translateY(-1px); }
+  54% { transform: rotate(-0.9deg); }
+}
+@keyframes check-tablet {
+  0%, 70%, 100% { transform: none; }
+  25%, 42% { transform: rotate(2deg) translateY(1px); }
+}
+@keyframes follow-line {
+  0%, 85%, 100% { transform: none; }
+  25% { transform: rotate(2.6deg); }
+  67% { transform: rotate(-1.5deg) translateX(-1px); }
+}
+@keyframes typing {
+  0%, 12%, 25%, 40%, 65%, 100% { transform: none; }
+  6%, 18%, 34% { transform: translateY(1.7px) rotate(.6deg); }
+}
+@keyframes sketch {
+  0%, 80%, 100% { transform: none; }
+  23% { transform: rotate(-2.2deg) translateX(-1px); }
+  47% { transform: rotate(1.7deg) translateX(1px); }
+}
+@keyframes check-list {
+  0%, 80%, 100% { transform: none; }
+  30% { transform: rotate(-2.3deg); }
+  62% { transform: rotate(1.5deg) translateY(1px); }
+}
+@media (max-width: 700px) {
+  .scene { aspect-ratio: 1.1; }
+  .scene .room-screen { padding: 3px 4px; }
+  .room-screen .screen-stages { display: none; }
+  .room-screen .screen-progress strong { font-size: 18px; }
+  .scene .robot:nth-child(2) .robot-name { left: 58%; }
+  .scene .robot-name { padding: 3px 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .scene .robot .robot-art::after { animation: none; }
+}

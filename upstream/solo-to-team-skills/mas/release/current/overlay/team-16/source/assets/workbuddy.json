@@ -1,0 +1,36 @@
+{
+  "tags": [
+    {
+      "zh": "项目交付",
+      "en": "Project delivery"
+    },
+    {
+      "zh": "接持续办",
+      "en": "Project handoffs"
+    },
+    {
+      "zh": "质量审核",
+      "en": "Quality review"
+    }
+  ],
+  "quickPrompts": [
+    {
+      "zh": "接手这份半成品，先核实版本和已定事项，再把审核过的成品交回这里。",
+      "en": "Take over this draft. Confirm its version and the decisions already made, then return the reviewed deliverable here."
+    },
+    {
+      "zh": "从这个目标开始，把我的要求做成一份能直接使用的成品。",
+      "en": "Start from this goal and return a deliverable I can use."
+    },
+    {
+      "zh": "要求有变化。请继续原项目，保留已经通过的部分，让受影响的内容得到复核。",
+      "en": "Continue the project with my revised requirements. Preserve approved work and recheck the affected parts."
+    }
+  ],
+  "displayDescription": {
+    "zh": "接手未完成的项目，按要求制作成品，途中变更只更新受影响部分，由独立审核席核准后交回原会话。",
+    "en": "Start a project or hand over a draft. The team makes the deliverable, checks the actual file and returns the reviewed version in this chat."
+  },
+  "description": "A three-role team that takes projects from a goal or an unfinished draft through production and independent review to delivery.",
+  "categoryId": "10-ProjectQuality"
+}

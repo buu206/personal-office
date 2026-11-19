@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; base-uri 'none'; connect-src 'none'; form-action 'none'; object-src 'none'">
+<title>带底稿开工 · 一人成阵</title>
+<link rel="stylesheet" href="page.css">
+</head>
+<body>
+<header class="mast"><span class="brand" data-i="brand">一人成阵</span><button id="lang" type="button" lang="en" aria-label="Switch to English">English</button></header>
+<main>
+<div class="hero"><p class="platform">DeepSeek Harness · 0.2.1-rc.5</p><h1 data-i="title">带底稿开工</h1><p data-i="intro">把手里的原件和任务要求装进一个新项目，交给自己的首席。</p></div>
+<form id="brief" autocomplete="off">
+<div class="columns">
+<div class="fields">
+<section><h2 data-i="files">底稿原件</h2>
+<label class="pick" for="draft-files"><b data-i="select">选择文件</b><span data-i="add">可分次添加</span></label>
+<input id="draft-files" class="visually-hidden" type="file" multiple accept=".md,.txt,.csv,.pdf,.docx,.xlsx,.pptx,.png,.jpg,.jpeg,.webp" aria-describedby="limits">
+<p id="limits" class="hint" data-i="limits">1–8 份，每份不超过 12 MiB，合计不超过 32 MiB。支持普通文档、无宏 Office、PDF 和图片。</p>
+<details><summary data-i="formats">支持的格式与同名处理</summary><p class="hint" data-i="formatDetails">MD、TXT、CSV、PDF、DOCX、XLSX、PPTX、PNG、JPEG、WebP。同名文件各有独立序号；原名、字节数和指纹都写进随包清单。</p></details>
+<ul id="file-list" class="file-list"></ul></section>
+<section><h2 data-i="brief">任务要求</h2>
+<label for="task" data-i="task">想让团队做什么？</label><textarea id="task" rows="3" maxlength="2000" placeholder="例如：根据附件拟一份可交接的执行表。"></textarea>
+<label for="criteria" data-i="criteria">你怎么判断做对了？</label><textarea id="criteria" rows="3" maxlength="1500" placeholder="例如：逐项列明负责人、数量和来源；未确定的地方单列。"></textarea></section>
+</div>
+<aside><section class="dispatch"><h2 data-i="handoff">交给首席</h2>
+<label for="scope" data-i="stage">这次先做哪一步？</label>
+<select id="scope"><option value="receipt" data-i="receipt">只收件，等我再说</option><option value="produce" data-i="produce">确认收件后，开始制作和独审</option></select>
+<p class="hint" id="scope-help"></p>
+<details class="team-opt"><summary id="team-summary">默认团队 · 16 席 · 6 群</summary><p id="team-info" class="hint"></p>
+<label for="custom-team" data-i="ownTeam">可选：选择现有中性团队 JSON</label><input type="file" id="custom-team" accept=".json,application/json"><button type="button" id="default-team" data-i="restore" class="text-button">用默认 16 席</button></details>
+<section id="role-mentions" class="role-mentions" aria-labelledby="role-mentions-title" hidden><h3 id="role-mentions-title"></h3><p id="role-mentions-help"></p><ul id="role-mentions-list"></ul></section>
+<label class="consent"><input id="authorized" type="checkbox"><span data-i="right">我有权将所选材料交给自己使用的宿主。</span></label>
+<p id="total" class="count" aria-live="polite"></p>
+<button id="export" type="submit" data-i="export" class="primary">生成项目 ZIP</button>
+<button id="cancel" type="button" hidden data-i="cancel">取消生成</button>
+<button id="clear" type="button" data-i="clear" class="text-button">清空本页</button>
+<p id="status" role="status" aria-live="polite"></p>
+</section></aside></div></form>
+<footer><p data-i="after">解压到新空目录，在 DeepSeek Harness 中选含 JOB.json 的那一层。打开 START.md，按本次授权发首条消息。</p><p class="hint" data-i="privacy">整个页面在本地处理，不发网络请求，也不把所选文件写进浏览器存储。下载只生成新 ZIP。真实办单使用宿主的账号、模型和权限。</p></footer>
+</main>
+<script src="../../team-16/source/web/core.js"></script><script src="../../team-16/source/web/adapters.js"></script><script src="vendor/zip-store.js"></script><script src="team-preset.js"></script><script src="../../team-16/source/web/role-mentions.js"></script><script src="project.js"></script><script src="page.js"></script>
+</body></html>

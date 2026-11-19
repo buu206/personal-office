@@ -1,0 +1,14 @@
+{
+  "provider": "deepseek",
+  "base_url": "https://api.deepseek.com",
+  "model": "deepseek-flash",
+  "input_cny_per_million": 2,
+  "output_cny_per_million": 8,
+  "price_checked_on": "2026-11-18",
+  "price_valid_until": "2026-12-18",
+  "max_tokens": 2500,
+  "timeout_seconds": 90,
+  "attempts_per_step": 2,
+  "task_budget_micros": 1000000,
+  "total_budget_micros": 10000000
+}

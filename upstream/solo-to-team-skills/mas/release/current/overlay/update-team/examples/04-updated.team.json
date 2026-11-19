@@ -1,0 +1,68 @@
+{
+  "format": "solo-to-team.definition",
+  "version": "1.0.0",
+  "id": "paper-boat-workshop",
+  "name": "纸船工坊",
+  "roles": [
+    {
+      "id": "lead",
+      "name": "工坊统筹",
+      "responsibility": "收件、派工，把独审过的成品交回。",
+      "avatar": null
+    },
+    {
+      "id": "maker",
+      "name": "我的折页主编",
+      "responsibility": "给折页标明分版号和折线方向；把可打开的双面稿交给统筹，由独立核稿检查。",
+      "avatar": {
+        "mime": "image/png",
+        "data": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAIAAAADnC86AAAA0UlEQVR4nO2YOwrDMBBER0OO5Cu5DqlTpzapcyXVOUTaXCBFCAibyJL2I0I0lcHaeTuwWozD83FHD7ELFQPsKHrCUg3wj4Hj+dgH3CBCKW5taKKTKKxPg1aFJjqJzsNslbi8FTowlMHChmjqrg+Wt0Uj310d2sqmy7Wlal7i7fR+Doqft9O85A/ED7U68a51IRUrsMS3iorVcG1fG1GxnWojdtF10mV/c2PVaS0qMgtEzs47sLlSQkXJAsnfsebmQsnmSledlsL4I+AlupHw7+AXGOVJ6yEBCHgAAAAASUVORK5CYII="
+      }
+    },
+    {
+      "id": "reviewer",
+      "name": "独立核稿",
+      "responsibility": "打开制作席提交的折页，核对文案和折线位置，给出带版本的结论。",
+      "avatar": null
+    },
+    {
+      "id": "keeper",
+      "name": "纸样保管",
+      "responsibility": "登记实际用到的纸张样本。",
+      "avatar": null
+    },
+    {
+      "id": "proofreader",
+      "name": "印样校对",
+      "responsibility": "在被委托后标记样稿的正反面方向及纸张编号。",
+      "avatar": null
+    }
+  ],
+  "groups": [
+    {
+      "id": "handoff",
+      "name": "交件桌",
+      "purpose": "记录当前样稿与接手人。",
+      "members": [
+        "lead",
+        "maker",
+        "reviewer"
+      ]
+    },
+    {
+      "id": "preflight",
+      "name": "打样桌",
+      "purpose": "核对纸样编号和正反面方向。",
+      "members": [
+        "maker",
+        "proofreader"
+      ]
+    }
+  ],
+  "workflow": {
+    "dispatch": "lead",
+    "produce": "maker",
+    "review": "reviewer",
+    "deliver": "lead"
+  }
+}

@@ -1,0 +1,30 @@
+--- a/web/core.js
++++ b/web/core.js
+@@ -90,6 +90,10 @@
+       if (!normalized) error(tag+'不能为空。',tag+' cannot be empty.');
+       return normalized;
+     }
++    function body(value,tag) {
++      if (typeof value !== 'string' || !value.trim()) error(tag+'不能为空。',tag+' cannot be empty.');
++      return value;
++    }
+     function unique(items,idKey,labelKey,tag) {
+       const ids=new Set(), names=new Set();
+       for (const item of items) {
+@@ -104,14 +108,14 @@
+     const roles=input.roles.map(r=>{
+       if (!same(r,['id','name','responsibility','avatar'])) error('席位字段不完整或有未知字段。','Missing or unknown role fields.');
+       readAvatar(r.avatar);
+-      return {id:validID(r.id),name:label(r.name,en?'Role name':'席位名称'),responsibility:label(r.responsibility,en?'Responsibility':'岗位职责'),avatar:r.avatar===null?null:{mime:r.avatar.mime,data:r.avatar.data}};
++      return {id:validID(r.id),name:label(r.name,en?'Role name':'席位名称'),responsibility:body(r.responsibility,en?'Responsibility':'岗位职责'),avatar:r.avatar===null?null:{mime:r.avatar.mime,data:r.avatar.data}};
+     });
+     const roleIDs=unique(roles,'id','name',en?'role':'席位');
+     const groups=input.groups.map(g=>{
+       if (!same(g,['id','name','purpose','members']) || !Array.isArray(g.members) || !g.members.length) error('每个群需要名称、用途和至少一名成员。','Each group needs a name, purpose and at least one member.');
+       if(g.members.some(id=>!roleIDs.has(id)) || new Set(g.members).size!==g.members.length)
+         error('群成员重复或引用了不存在的席位。','A group has an unknown or duplicate member.');
+-      return {id:validID(g.id),name:label(g.name,en?'Group name':'群名称'),purpose:label(g.purpose,en?'Group purpose':'群用途'),members:[...g.members]};
++      return {id:validID(g.id),name:label(g.name,en?'Group name':'群名称'),purpose:body(g.purpose,en?'Group purpose':'群用途'),members:[...g.members]};
+     });
+     unique(groups,'id','name',en?'group':'群');
+     if (!same(input.workflow,stages) || stages.some(k=>!roleIDs.has(input.workflow[k]))) error('四项交接职责必须指向已有席位。','All four workflow owners must identify existing roles.');

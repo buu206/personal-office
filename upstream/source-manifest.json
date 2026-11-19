@@ -1,0 +1,748 @@
+{
+  "repository": "https://github.com/dabingfy-dot/solo-to-team-skills",
+  "commit": "9ad57bae229b49a21c09e955373ec47126b7460d",
+  "imported_at": "2026-11-17",
+  "scope": "Selected local tools, skills, templates and examples; original paths and bytes preserved",
+  "file_count": 123,
+  "files": [
+    {
+      "path": "CONTRIBUTING.md",
+      "git_blob": "0cebdc0d309114b64316c7bf30aeff301b9490b9",
+      "sha256": "c219ea06c3341d27df8c027e8725ca44a57485d3904e9edfc4d48140aa880a8f",
+      "bytes": 1061
+    },
+    {
+      "path": "LICENSE",
+      "git_blob": "8c29f4a38eaebc27123608ac882bf7b1ad10f8a3",
+      "sha256": "5d63ea4387f51228fe2f5d313203c401fad2121e2fbf60354234b92dd2559001",
+      "bytes": 1075
+    },
+    {
+      "path": "NOTICE",
+      "git_blob": "4ed8affa0dfd1cf2e470bedd03546e7e6bc13b40",
+      "sha256": "7f7a21647486ce6a4da4b521066e465fdf749faf40573ddc8280e60403d0fe96",
+      "bytes": 4804
+    },
+    {
+      "path": "README.en.md",
+      "git_blob": "8074397679418bfa27a6f69130f0bff8b6f786e4",
+      "sha256": "ca17e0d2ede536a87ffcf903a99aae73018dae65990f6736e6413f13beedd1ec",
+      "bytes": 6477
+    },
+    {
+      "path": "README.md",
+      "git_blob": "970422c25f9ef03b54d3e7fd799b52c7599a2f47",
+      "sha256": "5352ca41a72572f8dc1cc708a2974a33c3602c7ee18721a9ae835645040290b5",
+      "bytes": 5477
+    },
+    {
+      "path": "RELEASE-NOTES.md",
+      "git_blob": "a36522038b02a690347d92b3688daf366430014f",
+      "sha256": "7b62e4ab30c084fcc67a107e181701be3d8c36742e225208170bb827daaf353c",
+      "bytes": 2657
+    },
+    {
+      "path": "SKILLS.en.md",
+      "git_blob": "d3906127908896fc8aff6182bd0b24deb1c9984a",
+      "sha256": "5cade0a5ba5c3846f523d5ef5181331413639aba3610a474099227ecf663b246",
+      "bytes": 37441
+    },
+    {
+      "path": "SKILLS.zh.md",
+      "git_blob": "303373d33543efd00281ff9c1ff2520386e4bf8d",
+      "sha256": "ac70a873f4a2a627772879f52d9f720b5b69b08dfe74ddbeed22b17fd30e4fdb",
+      "bytes": 31157
+    },
+    {
+      "path": "examples/README.md",
+      "git_blob": "101569c9288cd56371c1bd85e2bd53048d856129",
+      "sha256": "e9c09c310d37d281d0feb284f856576104e5fef6e05a7ce293909bd706092b5e",
+      "bytes": 9347
+    },
+    {
+      "path": "examples/walkthrough-meeting-notes/README.en.md",
+      "git_blob": "4979f3f04b34a941ba886c1e1f7bab2952edfc94",
+      "sha256": "ff2b93b0b8cfaef2f5758c78d8a286d283d8274585602e449c84b4dc06e452c3",
+      "bytes": 9890
+    },
+    {
+      "path": "examples/walkthrough-meeting-notes/README.md",
+      "git_blob": "a0044ceab2b17bdc2ffebe3251d009fedab403a8",
+      "sha256": "8b305776fc6015ad17e40848ba5939eff4a421d1df46b40fe5a5894fddb43d3e",
+      "bytes": 5302
+    },
+    {
+      "path": "examples/walkthrough-meeting-notes/input.md",
+      "git_blob": "ac2cc94a8aaf37b7a401ab43c7d68af665963931",
+      "sha256": "c00234be24dcfa65e5e2522bc41c4b4a52d52d488feb5aba6bcd8c1677a793aa",
+      "bytes": 942
+    },
+    {
+      "path": "examples/walkthrough-meeting-notes/output-missing.md",
+      "git_blob": "47ee8ae45636b023996e2c7f368272a433c3a61a",
+      "sha256": "52312b389eb331fb00693411dfd700d9422441570f10125940a137bb94f49dd3",
+      "bytes": 392
+    },
+    {
+      "path": "examples/walkthrough-meeting-notes/output-ok.md",
+      "git_blob": "80be79aa7bf020994ca58065fcbc05d232f2ecf1",
+      "sha256": "e22e90d680af6564dca85830060a77faf7f16e6ab05f84977c6b20750c348923",
+      "bytes": 529
+    },
+    {
+      "path": "examples/walkthrough-meeting-notes/register-lines.md",
+      "git_blob": "2d2ab64622ba41f8cb7d5003433f94a8ad52f7ab",
+      "sha256": "b67fb2d5515cb532ebce40280655853c2549b7af1aab52d71fd00f7991af78e0",
+      "bytes": 3313
+    },
+    {
+      "path": "mas/README.en.md",
+      "git_blob": "a8a1e6e1a489869914f6793d32f18252bb977fe8",
+      "sha256": "0a8308808bf8fb8864d9ca7f423ac5c93ff479073fb828e757fb0e41e19ac384",
+      "bytes": 5901
+    },
+    {
+      "path": "mas/README.md",
+      "git_blob": "1448830a6fa7a7d779cae85f27db8cc6c92129b7",
+      "sha256": "04f4750fea1e239944a9d0c01475b26e0e4b18b3daec832e8b041eb06e01a8b3",
+      "bytes": 5122
+    },
+    {
+      "path": "mas/release/current/overlay/LICENSE",
+      "git_blob": "8c29f4a38eaebc27123608ac882bf7b1ad10f8a3",
+      "sha256": "5d63ea4387f51228fe2f5d313203c401fad2121e2fbf60354234b92dd2559001",
+      "bytes": 1075
+    },
+    {
+      "path": "mas/release/current/overlay/NOTICE",
+      "git_blob": "4ed8affa0dfd1cf2e470bedd03546e7e6bc13b40",
+      "sha256": "7f7a21647486ce6a4da4b521066e465fdf749faf40573ddc8280e60403d0fe96",
+      "bytes": 4804
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/index.html",
+      "git_blob": "c147d20034707fb83787c1280054f1a99a9cef5b",
+      "sha256": "a31e0abbf81174bc00643143f16966e159ea9c91501cb659d6a16af1067b7404",
+      "bytes": 1155822
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/source/README.md",
+      "git_blob": "a0a6e8a11377a0fa80c3415fd50d91734f1f8f0c",
+      "sha256": "8e233728ff5704c4a35e6f9a333ccd82f018fef686341be257f5b39f8a01ec5b",
+      "bytes": 2086
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/source/build.mjs",
+      "git_blob": "63dc351b66f3c7a5fcb1e1188accf8416f33d9bb",
+      "sha256": "3859e0c14101a252cf9afe3271b6f4aec49ae7af814aa279beb5af35a5113691",
+      "bytes": 1271
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/source/index.html",
+      "git_blob": "1633e84b879478b8799eb267d182e6cb645afb32",
+      "sha256": "055d4f6dd387be31ceabf634cb62f5337952dd73e1508e7a769247af1cbe633b",
+      "bytes": 4470
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/source/page.css",
+      "git_blob": "c3a53301d8b3ff7a290ef94e06b1370c03012a44",
+      "sha256": "46c3af9b172ef520c618c192ada7691bb8c5089e6f0834dd5e142183c12cb2fb",
+      "bytes": 3810
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/source/page.js",
+      "git_blob": "b75d96d30b292f010171bf48ab3eab87ccf2cf9d",
+      "sha256": "eaf269ada0d6e88de094553d6c5a664f2ebef50ea7dddce58b3595235c1c83cf",
+      "bytes": 11280
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/source/project.js",
+      "git_blob": "8cbbf16840080aba97c04046e72b0f0b475bff5b",
+      "sha256": "d714eca44ae9e7f2c0f17723d90c205b6db9e321328a506c9839c234242206ca",
+      "bytes": 11166
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/source/tests/default-team.test.mjs",
+      "git_blob": "2242c905a5b75f0ce2e92ffffb321fb5e1972e27",
+      "sha256": "31b5cf8e61025345f697c3cea5067df0b2de87ec6060a1062c217109f1ea065b",
+      "bytes": 7525
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/source/tests/role-mentions.test.mjs",
+      "git_blob": "71ed8dfe4b3703e2a827b06d6381a5e9be7a0283",
+      "sha256": "32fd41c7753464ceae84d81640db896be706ce53859b8318d60ab9b1f91f9d05",
+      "bytes": 8620
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/source/vendor/adapters.js",
+      "git_blob": "f1d779d3d5e7e8675ae10891457cea29002fb594",
+      "sha256": "3987344de18cf92aa6cd93289712844a15f2b1f590622485eb7ff69e772b875c",
+      "bytes": 15411
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/source/vendor/core.js",
+      "git_blob": "9621e9523c04b0aca97ea0dccc0d3d7190b25255",
+      "sha256": "7c9d067165ad9fdc6f1e80d90a20fb6d68102d074f8fe6217fe48e2a74d2d58f",
+      "bytes": 11824
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/source/vendor/zip-store.js",
+      "git_blob": "af8c592c23cc2b03d6d744e08778f2045f5b691e",
+      "sha256": "c74a7e4f0f4b8577bf59c87ffbc6142d00b3bc61051f40548baa97641dbe7f9e",
+      "bytes": 2479
+    },
+    {
+      "path": "mas/release/current/overlay/start-with-files/从这里开始.md",
+      "git_blob": "a21ee3e13cbaea6d888d54d6d198ad72d22f5c15",
+      "sha256": "2891c6f80b2b5579823bbb135fd93bda17eafc19e3d30d1f9b3496a04e955d94",
+      "bytes": 2806
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/README.md",
+      "git_blob": "a87130111f0918a937ef9a35f9488e5f0b5a0fd5",
+      "sha256": "5c060cd1f10a83d1ba10034595e3bf9781ea12aadf36e0e108b5f38ed15138c5",
+      "bytes": 7278
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/SETUP.en.md",
+      "git_blob": "85177f3be1f970b358904ff5bdf6f03899b6cec3",
+      "sha256": "480ee778d61ab656552d360fe651e5b8726a9a9f256b869f1b7641b635d64bb7",
+      "bytes": 8597
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/SETUP.zh.md",
+      "git_blob": "cac36a8ad43eb7f7de39679950ee7a7000ae42ec",
+      "sha256": "d80f045c32ab8a5281cf0327385c28bc3dc8a0b4d4247af47527a4a1871001e3",
+      "bytes": 7393
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/VERIFICATION.en.md",
+      "git_blob": "344d435e8b02de0456e3df4f7b64565f0b1324a9",
+      "sha256": "13eef783b6528cc2c4662324be999a788be75b1fcaf3dcee52423097c642ff50",
+      "bytes": 19702
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/VERIFICATION.zh.md",
+      "git_blob": "b4b68d297ecd213f0a6bd66d2fb1ef2f405b270d",
+      "sha256": "213e5b87e17b92749db3595ca9960a9445a950930c53e0978302a09a0735bca6",
+      "bytes": 14497
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/index.html",
+      "git_blob": "42cbe23473a8e53098ee42cd6982bee9cf00828f",
+      "sha256": "6b0f92edc2c80e61d998ca974a1579e6f82c995f711d80b70fa94c4e043df1ec",
+      "bytes": 1355895
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/rules/groups.en.md",
+      "git_blob": "16390521eb66b59c0a04c2be5cbe63bb01ff75fa",
+      "sha256": "328fa66389461cfacbbc687b03f663e298b2267d9353f29baaf65798ed18be3d",
+      "bytes": 24877
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/rules/groups.zh.md",
+      "git_blob": "e022d8ff842a257cd6a290fb8acca4c687f05b4d",
+      "sha256": "83444ea78e74d0975c6986c41f3b87007d663bd21c247237adcbfa1f94f97d5e",
+      "bytes": 20454
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/icons/production.png",
+      "git_blob": "b260fdb530aa505f79773f134c0554acbc44c825",
+      "sha256": "f784f80784c394e909751754fa087fb233972f413ea5ef414d2be4fd774dee42",
+      "bytes": 15341
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/icons/review.png",
+      "git_blob": "06eae24d88cd6462f364f507cc7ee393fe441a10",
+      "sha256": "a6f94f07efc4b7059596e06756d33af45f7fc8db78954c7445334ec2bd0ac42b",
+      "bytes": 24948
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/icons/team-lead.png",
+      "git_blob": "d6461a92f368608ec5986b2ebd60d0f6d45859a4",
+      "sha256": "65f639a657e1610acb2c7a21c04257bc6943770fbab654ee7c6033582968e2ec",
+      "bytes": 31103
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/icons/team.png",
+      "git_blob": "6ca71cd842f12769e1d23b295d1dc39c18cb64db",
+      "sha256": "9ceb6d41b2ebb6ee57255d2819fd5e346143aec848451eb44b0a630a8c0b581b",
+      "bytes": 14328
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-analysis-specialist.png",
+      "git_blob": "6efccf625d7130d4c7d0ccbd85b6873bd16e9fd3",
+      "sha256": "f1f8662f5d17915ce1ac246c9e62270939ab38d46482f408125cc9979fc28c35",
+      "bytes": 15814
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-art-editor.png",
+      "git_blob": "89a106465ea8adb548f12c154632f1b3d0c8f536",
+      "sha256": "2004fbd64ca44f01c48eeb757e0e08b11ed0592c30a3c2d8ba39dd3015ad5e3a",
+      "bytes": 21153
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-chief.png",
+      "git_blob": "d6461a92f368608ec5986b2ebd60d0f6d45859a4",
+      "sha256": "65f639a657e1610acb2c7a21c04257bc6943770fbab654ee7c6033582968e2ec",
+      "bytes": 31103
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-creative.png",
+      "git_blob": "d9aa8c142d6593e271759a316665cb6e21810ac8",
+      "sha256": "19929254c9a550a9db062757996c8e7506e1e1bf607b565cf9ed150151d62e33",
+      "bytes": 19923
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-daily-affairs.png",
+      "git_blob": "ac78acfa56f6b6f19480d42206b7017d4c4e6631",
+      "sha256": "31c2aa123e2565bdcc8eed1f7fdcd2a02e33bb33d75afdfe899122bdbb9a8b2d",
+      "bytes": 15983
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-implementation-engineer.png",
+      "git_blob": "ef9a5263dfc3ffd7146250b62ff86900ee2cd8d2",
+      "sha256": "c0a2a45a88e32a813f4dd147a804eb8875aaffef0b44de778f7c17a9bbd0df33",
+      "bytes": 13660
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-inspection.png",
+      "git_blob": "85a2e3db51443dad4f0a7a06bf43d7af671cd256",
+      "sha256": "61c02cf25ff0b065aed3df080c0a9d3ea0dc8ff493fad4a85efb54d8a3131ea1",
+      "bytes": 24277
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-intelligence-adviser.png",
+      "git_blob": "2ffb2345d1fd3e5907dc060f4c9fd373b9c62755",
+      "sha256": "b38959b3431f8f4f6845fbd8776ce422439e23f27e95e6e2c7f06344eb3ef588",
+      "bytes": 26042
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-intelligence.png",
+      "git_blob": "4cab0ca31607a3f5032b5f688d81cf327d7f3057",
+      "sha256": "d60551c0f2ebbb2284ed8249a52292273d79d2d3255093ab1f143fa5deeade50",
+      "bytes": 40676
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-learning.png",
+      "git_blob": "8571e9a0f5839fdf66e8856dec5cf32a2edbb7f5",
+      "sha256": "b3a1c62de00de6765c02fd7abe26d3a8cf4762aa7e54470730ecd62da9694d22",
+      "bytes": 20109
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-legal-business.png",
+      "git_blob": "6d364b775acd1f0a2aa75e45c2a1cf497185561e",
+      "sha256": "d32818e9ea4565266eb9d7f6411e131ac30723f40eaa2210043c3d47ad444e34",
+      "bytes": 16353
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-network-engineer.png",
+      "git_blob": "1c5b8f12377cc915fea6c667901b0e83af419b8b",
+      "sha256": "875ca69936247e7dde1992dc3fb6da26f39d784bdd2f51680eacba06ab164300",
+      "bytes": 26778
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-production.png",
+      "git_blob": "b260fdb530aa505f79773f134c0554acbc44c825",
+      "sha256": "f784f80784c394e909751754fa087fb233972f413ea5ef414d2be4fd774dee42",
+      "bytes": 15341
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-review-assistant.png",
+      "git_blob": "f267db3ae44a95c3f2549d0813c939acfd30dd22",
+      "sha256": "cdcedd2782ad049ea3950cae7fc5fda431f446c89749fcd075a5e661034848f6",
+      "bytes": 16382
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-review.png",
+      "git_blob": "06eae24d88cd6462f364f507cc7ee393fe441a10",
+      "sha256": "a6f94f07efc4b7059596e06756d33af45f7fc8db78954c7445334ec2bd0ac42b",
+      "bytes": 24948
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/role-icons/seat-technology.png",
+      "git_blob": "af6f43939af4054d36094538a53d15201d072e23",
+      "sha256": "d825974b918647b2d8ccda2b0ee45d7622f94199b14128a4dfe8f29505b8704b",
+      "bytes": 25017
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/assets/workbuddy.json",
+      "git_blob": "c8834c4ec12ba38b7363832a4e4ceb5928236932",
+      "sha256": "7cc53510bbee2e1a2bd0176c3377356fc2d91a78a3555be5f308fbe190de042f",
+      "bytes": 1462
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/build.mjs",
+      "git_blob": "8982f6b404fc64eb80a450d24250666028b3c649",
+      "sha256": "d155bc5a519bf6cfc103ccf4835e8f01c183407380229c345fe8a5c59a6f8fff",
+      "bytes": 6132
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/presets/groups.en.md",
+      "git_blob": "16390521eb66b59c0a04c2be5cbe63bb01ff75fa",
+      "sha256": "328fa66389461cfacbbc687b03f663e298b2267d9353f29baaf65798ed18be3d",
+      "bytes": 24877
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/presets/groups.zh.md",
+      "git_blob": "e022d8ff842a257cd6a290fb8acca4c687f05b4d",
+      "sha256": "83444ea78e74d0975c6986c41f3b87007d663bd21c247237adcbfa1f94f97d5e",
+      "bytes": 20454
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/presets/team.en.json",
+      "git_blob": "ed26c0e82265a64772ac65e3a928895a634c60c1",
+      "sha256": "3a5b0721ffbae526471d59a91256082083d3be3ae4654d3a9ac3f5b2ed6b7a49",
+      "bytes": 529813
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/presets/team.zh.json",
+      "git_blob": "79a70c1bea58a6d24bc56525b73ded13f939cd0b",
+      "sha256": "19fc153b7cc24c01e996a8a304145fdeae4980d6a126f5d21505d052ada5e86f",
+      "bytes": 516386
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/adapters.js",
+      "git_blob": "206b4e93216df083c31bf393781887423e209bbf",
+      "sha256": "8387e565adb88fa3ce5f5e063029755ea55caed0921fe791465c5651c344eec7",
+      "bytes": 18464
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/app.js",
+      "git_blob": "ed167be489d2bc868404a66425a5bad5f7a10515",
+      "sha256": "7b671ab571267812c35dffcd97d7d8eb9e39ec392da0ce0d977ce2f96704c4c8",
+      "bytes": 24462
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/builder.css",
+      "git_blob": "36de55e0b7e89361941187cb8e5777ca49778b41",
+      "sha256": "7dddeb2f1940e3e8cb580af5c709ba7f55a445a96fe971dfbe00f17de8370822",
+      "bytes": 7095
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/core.js",
+      "git_blob": "6f0ae081d76ebbeb0dcd50d96d05fbf32004fd2d",
+      "sha256": "46660b2582344c1309f5d77428f117ac198977d434685b7636fbe8404a1fb080",
+      "bytes": 11987
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/ds-panel.js",
+      "git_blob": "4cfc43e2574aa213328d4ecc4c79c398f7446e81",
+      "sha256": "9a1a8d48dd56f1493b10de8a0c52a381f4459fb016de54925c908d556197c542",
+      "bytes": 10947
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/ds-planner.js",
+      "git_blob": "a1af0d8f277fa623148accaf7b76505c96615a23",
+      "sha256": "e01047fd6d47644c61190d8ad57ef63227380ad7d88665c8aa44ed3819e31953",
+      "bytes": 12372
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/ds-runbook.js",
+      "git_blob": "27132f4a13c8fb2184cf36a8a440f8caa97ddeb8",
+      "sha256": "5fa8f67dc5259f7ff8bd9705fa554ffb4529c254e5ae5afd01c988a8508f83fd",
+      "bytes": 8488
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/focus-retention.js",
+      "git_blob": "a9807a75487b5b83b8e2ff9ea83e33e1da82461c",
+      "sha256": "06a25a5000878e4ef799058ac4a1cc57a17e6f78039a315ec308c3105a4d2095",
+      "bytes": 2399
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/grok-plan.js",
+      "git_blob": "af935bd09ffdc81b6f5c1c62b428999c1f5ed8e2",
+      "sha256": "2dea65307ffcaff1e7e18741eab5a29195c9bae6b1b0de8fff2032304e66820c",
+      "bytes": 8169
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/hosts.js",
+      "git_blob": "1df4cea0bb1273de5771745361d37bf9dd6b51c3",
+      "sha256": "5d4e4d732c44a08e74aede2d2b6058138ac81daafe26953c37980a5c1d0ab03c",
+      "bytes": 19905
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/index.html",
+      "git_blob": "e3094857b4588b32c67bf1f11c471ac255625f83",
+      "sha256": "33e35cd190750b26b3ae8ff3ac9c26fa8a81536f9626eb7861cefe29af2b32fc",
+      "bytes": 5052
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/role-mentions.js",
+      "git_blob": "87201663a844d3df5599fd1cf9369d7a72598c88",
+      "sha256": "f192d732dedd2cb3d7351986e7d14f722bf8a0fe80d56f8a284d6b698416c596",
+      "bytes": 1776
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/rooms.js",
+      "git_blob": "5162b7fddc1f696be7ce5b86d6c81bf3670caf58",
+      "sha256": "80112535741ce06f59f4614429e1f40b46decc94f0003d2a2aeed4a6513e7707",
+      "bytes": 2591
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/template.js.in",
+      "git_blob": "4ba4d9f1591916628272b45e210a33569f847af9",
+      "sha256": "61e1ad548f4e0da536e7271e68d501a4c9ea7c262bee1a4736537d14e0f0623c",
+      "bytes": 62
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/workbuddy.js",
+      "git_blob": "cee7abb69b17915530d85a35bc5742e72aa3f108",
+      "sha256": "d4983e8417434d3c1b6713274387745f2425d407cdb068d12c86fc4e0d17adae",
+      "bytes": 13385
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/source/web/zip-store.js",
+      "git_blob": "af8c592c23cc2b03d6d744e08778f2045f5b691e",
+      "sha256": "c74a7e4f0f4b8577bf59c87ffbc6142d00b3bc61051f40548baa97641dbe7f9e",
+      "bytes": 2479
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/adapter-semantics.test.mjs",
+      "git_blob": "c13b9f1136e576b2e7a7b6718afc842891e333a4",
+      "sha256": "6b4c06f7a2bc3aeb2af8ae477e538f1f504465c9df88a647f01cc383d86675d9",
+      "bytes": 11224
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/body-preservation.test.mjs",
+      "git_blob": "f3d09a7abb83ca4e99002b2a39824cfe3b5ddb3d",
+      "sha256": "167a2b82910b6cde535a51e5f3c46ea6fc2324a1964582a35740367e87f3d278",
+      "bytes": 1727
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/adapter-semantics-before-custom-groups.patch",
+      "git_blob": "3b0d7bf0c0576872421105b030c0c4673d17a08a",
+      "sha256": "f5f63b469e705a9fd1d6a4d9cd1a13da5e90edbe3008071d8213ef01668d002c",
+      "bytes": 29803
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/adapter-semantics.patch",
+      "git_blob": "7d88ca5666c37650615bacbb14b7cf57d9c4cb52",
+      "sha256": "de927647e295cb04f4ed003c8b83b6b18686c4be9021724b0ffd40c2a9b4e982",
+      "bytes": 31236
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/body-preservation.patch",
+      "git_blob": "e46d9d72155a95d41dac55c85762452bf6994385",
+      "sha256": "b08bb99dcbc92bf82ed2b3d00e9a41009b4c527336a38bc3668d0b7a1af57ea2",
+      "bytes": 2283
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/focus-and-selection.patch",
+      "git_blob": "d8cdc0d928ef6a90c447ef6ddbed79eeaeb8d9b5",
+      "sha256": "7f5319e69720b0a04c4547953ec86d5c244aa4ba31966652d38c120b7bc2ffbf",
+      "bytes": 17370
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/frozen-modules.json",
+      "git_blob": "3b770a340679cb94edf785e2cae5711023dffd90",
+      "sha256": "cd74796a5b17f2cd78bea522ed879aacbaa43bf18c11d371487c080fdfef13e8",
+      "bytes": 855
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/grok-startup-disclosure.v2.patch",
+      "git_blob": "3c34e8f1d665b2cbefe921eb859eeee3d6e79463",
+      "sha256": "98658d13af9bb000e2f99d0128cc472ac81d8f4bceb3fe2db1228bd13f6d8c28",
+      "bytes": 8233
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/input-and-role-mentions.patch",
+      "git_blob": "62185042d60abf92aa04b506cc5594ad4d154dea",
+      "sha256": "2bf613ca5213c3fb3bf460a19a6cc0b4ea89cdb03f305b35874318dd571f64e9",
+      "bytes": 4276
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/input-typography.patch",
+      "git_blob": "698eb19b35d8a874b0a845166813d9486851db89",
+      "sha256": "a9d76eb752c8b8e394afe49bce535386cce7c29f13fa536b9b5b1c540f54860f",
+      "bytes": 3875
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/known-patches.json",
+      "git_blob": "a80fbdc522337d88a5e3e41f55467306f50e7412",
+      "sha256": "8e60f021c738b08eb9eafd3f4a378dab70b59b15c832e1f0946b4ce948e1ec04",
+      "bytes": 6246
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/openmaus-approval-guidance.patch",
+      "git_blob": "ef2265053e0629bb4f78fb684c14cda86da0d1be",
+      "sha256": "1d9a11c1e0d5183351be8ba3072c70ace843842ddf3e33524e8151b46d76ed12",
+      "bytes": 5584
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/openmaus-final-size.patch",
+      "git_blob": "772fdb7a0de3389fa7f46cd9b56ede7cbe8d8a8a",
+      "sha256": "91cdff9bcb2dbbae1302dfcbdbc6d4588dbc89c9ac118d8db4c9f2ca81591c6f",
+      "bytes": 1681
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/fixtures/roster-lock.json",
+      "git_blob": "8eee59f04583b92c5957f89786ecd6591382cf3f",
+      "sha256": "d32de9ae177be4c5f61d177b59b299b2b7d3f6b0508ea344c62ede8f757a39ea",
+      "bytes": 2589
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/focus-dom-helper.mjs",
+      "git_blob": "1d8ff0abec602c5f58d75ffb37daf2d950732398",
+      "sha256": "0344384a1ac71bdadc0bf50e2589904d2f461dc5955e6f591d715ab55d4ec287",
+      "bytes": 12102
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/focus-preservation.test.mjs",
+      "git_blob": "f0d9dc555c0a1872229f93be4f8ddb880bd9a2e0",
+      "sha256": "70bebfcffa70c9351a613f9cdd0d018f1eb5c74000b036fdcfeb6cf2dc42f80b",
+      "bytes": 12805
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/openmaus-size-limit.test.mjs",
+      "git_blob": "8787b9098886945fa0caa449f06d710615e26d17",
+      "sha256": "8fd893cb04c3c2bd34ee58cd1ba6e8d07e72cd32131d10efaac040dd5a8c8c78",
+      "bytes": 7271
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/role-mentions.test.mjs",
+      "git_blob": "bf37b7e104fa0b8519fbe2135698b452878a84ba",
+      "sha256": "386f7fd183f8d69e416cfe184f98cdefda7d8745247de1835838068c94c45d91",
+      "bytes": 10456
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/rule-references.test.mjs",
+      "git_blob": "62a91df22fbb64bb10c62ffc74fc05a7484c60e5",
+      "sha256": "778c3997eb8516cffaf61df9e73791d91684fca83281fe13cef7f0404917fac0",
+      "bytes": 1229
+    },
+    {
+      "path": "mas/release/current/overlay/team-16/tests/team16.test.mjs",
+      "git_blob": "1edd64233102f14d22f2f7db6f3c65406f0290b9",
+      "sha256": "ccc3bc436f14aa5f3a4fbf208836507a44d6024c83c26687ccedf80000dc5913",
+      "bytes": 11636
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/README.md",
+      "git_blob": "ffaf4fb9e29e7461592ac13152c9680ff5a8f71d",
+      "sha256": "068a7311aad3aab4e5fc6be53d5031096b53b24321f2e9e22f44ab800879d7be",
+      "bytes": 4130
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/examples/01-base.team.json",
+      "git_blob": "d2badbdc7122a17c717233641415bf805db0fa37",
+      "sha256": "c2bc9405f53eb1b47164d34992523566a1dd2be4ce7a786ce8dc06987de87340",
+      "bytes": 1162
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/examples/02-mine.team.json",
+      "git_blob": "53ab1a42aad2d16d8d94ada42154eb3d3836b09e",
+      "sha256": "9df27b4be2630375f3010f8d060a8c809b4df18b5acaf68c5443043de3e8755d",
+      "bytes": 1608
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/examples/03-next.team.json",
+      "git_blob": "6659e00f42008999a48cc6ce81f2fdf126c3f691",
+      "sha256": "4e6b3b9b94b78bbfb46f5d6cd4dd8be050fc8e17012fef90d615452f5736b3cc",
+      "bytes": 1574
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/examples/04-updated.team.json",
+      "git_blob": "b895d8a71543a5f739a15294d5d6d36be01781f6",
+      "sha256": "d829c98aff6008fee4e2697b6a5cbacac02b639266f5c42061c9893b29534d7e",
+      "bytes": 2013
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/index.html",
+      "git_blob": "6521af3c0909806429c17b9e9b7cce373c8eef06",
+      "sha256": "5d5d855b11910b57ee429d8fd64a533c3b9ca93693a9ec2fc9e8b29baa188b7b",
+      "bytes": 37550
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/source/README.md",
+      "git_blob": "afa57dd132908a30b24bf68460996fbbf09da957",
+      "sha256": "78e0c40eec96cba84ea252978904f1237681c7e436fa577755e0cec71dc2a99d",
+      "bytes": 2191
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/source/app.js",
+      "git_blob": "80cb821dd6df5141f87505e49be95bcedb79ee5e",
+      "sha256": "2fe271618a489ec50339d74a734e081e7ab4d2c4e422066f26bf22e06a956f95",
+      "bytes": 12296
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/source/build.mjs",
+      "git_blob": "ffb11d2a6ab3d6497b3b0622fd4b044b92a418c6",
+      "sha256": "6b56d584e44227f2e46ddc0e0f31d027b17503978bf6ed18532efe214d72f5c2",
+      "bytes": 1393
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/source/core.js",
+      "git_blob": "9621e9523c04b0aca97ea0dccc0d3d7190b25255",
+      "sha256": "7c9d067165ad9fdc6f1e80d90a20fb6d68102d074f8fe6217fe48e2a74d2d58f",
+      "bytes": 11824
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/source/index.html",
+      "git_blob": "e1120aaec768acb1ae88d85dda8cc4372e30dc3c",
+      "sha256": "9094609aa522449224d1885ccf6a804b952eb5c13eaf845d766f7bd961d41f32",
+      "bytes": 3015
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/source/merge.js",
+      "git_blob": "6e0e4b8d6aabdb6c7dd2dc2dc38f650f55a76c7d",
+      "sha256": "dddad373aba1604e9f17f45d1c44553a816c184624c7ffb08277b91a9934757a",
+      "bytes": 6848
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/source/tests/body-preservation.test.mjs",
+      "git_blob": "9c0643d01a9e6632acda833465791757613d1663",
+      "sha256": "ebdcded8d933593ccc771de66c4c931bed15d759c2f89d85764c21c9e71fa6cc",
+      "bytes": 9512
+    },
+    {
+      "path": "mas/release/current/overlay/update-team/source/update.css",
+      "git_blob": "e8e744d63309115a7815844d5240e180223078e4",
+      "sha256": "bb535fac1d1200767343e42d457f2722f74c1caa28a070830ec8caafbcea2b39",
+      "bytes": 3295
+    },
+    {
+      "path": "plugin.json",
+      "git_blob": "8b28145a6dae34938892c88718c41bc36775d634",
+      "sha256": "f987d83066fb976aa245a4a6b64bd652942507c1a645aa15c189d3d653244d57",
+      "bytes": 277
+    },
+    {
+      "path": "skills/beginner-ops-writing/SKILL.md",
+      "git_blob": "4f4c1aaf1739fc5d6c79cc74aeef8950c5bf64a8",
+      "sha256": "86f3bbe032855f3d3c31597a1d883d95b31d4fc96722b0e884dd59c70e61625b",
+      "bytes": 10139
+    },
+    {
+      "path": "skills/dispatch-accept-verify/SKILL.md",
+      "git_blob": "66800dcd3749d61aae0436dd226a3e072d933bb4",
+      "sha256": "a7cda747f77ce3b14ad1e4035706e963cb646b7ed5685a9e621985ecd5dc5a15",
+      "bytes": 12343
+    },
+    {
+      "path": "skills/dispatch-accept-verify/templates/登记行模板.md",
+      "git_blob": "81fa1da125ea89a40d3153b4c50a02ecac20cf72",
+      "sha256": "e816df79300b2740452ac8169fcc3203b9838b15645d02888c151ccc379a3054",
+      "bytes": 6204
+    },
+    {
+      "path": "skills/evidence-before-done/SKILL.md",
+      "git_blob": "ef5fb1176cb67f495dca1f7ec7dc5a4a51720d95",
+      "sha256": "edad73f663dad6ce66e62d3898f8cdc89b90b5fdd3c241b291dc961d84d738df",
+      "bytes": 12043
+    },
+    {
+      "path": "skills/ops-case-notes/SKILL.md",
+      "git_blob": "747cdf4a99f4b321f1f482f92fefc2623e1a9bc4",
+      "sha256": "830e8482e8c9897b0c503968189408660741ad238b462a7e6e556b75ac88b3b2",
+      "bytes": 12530
+    },
+    {
+      "path": "templates/task-register-line.md",
+      "git_blob": "caab3ece3a59d7fcbb84dc250e819253d4de0523",
+      "sha256": "d824d09f631e7d3c022c014a4467fbe968f3a304e616aaf6da553a1d9652cc47",
+      "bytes": 6238
+    }
+  ],
+  "errors": []
+}

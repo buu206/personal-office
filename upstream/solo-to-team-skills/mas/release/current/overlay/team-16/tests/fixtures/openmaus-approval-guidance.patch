@@ -1,0 +1,22 @@
+--- a/web/hosts.js
++++ b/web/hosts.js
+@@ -65,7 +65,7 @@
+   }
+ 
+   const descriptions={
+-    maus:[['OpenMausBot 部门文件','OpenMausBot department file'],['0.1.148 本地模板，可分别指定派工与交回席。默认仅建席位。若要一并建群，请逐群勾选。导入会新建部门；先核同名，逐席核对宿主实际的“询问”权限。','0.1.148 local template. Different seats may dispatch and return the final deliverable. Rooms are off by default. Select any native rooms below. Import creates a new department. Check for duplicate names and verify each actual Ask setting.']],
++    maus:[['OpenMausBot 部门文件','OpenMausBot department file'],['0.1.148 本地模板，可分别指定派工与交回席。默认仅建席位。若要一并建群，请逐群勾选。导入会新建部门；先核同名。包内 ask 仅为建议。首次用原生机器人“资料 → 权限”核岗位默认和专用目录；另核派单首席当前对话、实际新委派子会话及复用旧对话的权限。默认 Ask 不覆盖已有显式 Full，Ask 不等于完全只读。权限由用户本人决定，详见 SETUP。','0.1.148 local template. Different seats may dispatch and return the final deliverable. Rooms are off by default. Select any native rooms below. Import creates a new department. Check for duplicate names. Package ask is advisory. First check each Bot’s default in native Profile → Permissions and its work folder; separately check the dispatching lead’s current chat, actual new delegated chats and reused chats. Default Ask leaves existing explicit Full unchanged. Ask is not fully read-only. Permissions remain the user’s decision; see SETUP.']],
+     dsh:[['DeepSeek Harness 根工作区','DeepSeek Harness project workspace'],['0.2.1-rc.5。解压到新空目录，保留 .dsh；选含 team.definition.json 的这一层为工作区，在新会话用 /solo-to-team。根会话同时派工和交回。逻辑群只用于协作说明。','0.2.1-rc.5. Extract into an empty folder, keep .dsh and select the directory containing team.definition.json. Use /solo-to-team in a fresh session. Dispatch and delivery share the root role. Groups are context only.']],
+     wb:[['WorkBuddy 原生专家团 ZIP','WorkBuddy native expert-team ZIP'],['按 5.9.3 格式生成。在“我的专家 → 创建专家团”附上 ZIP，请内置创建器私有导入，遇同名差异先停。主理人组织并回件，制作和独审各由另一席完成。群不变聊天室，配置不保证并发。','Designed for 5.9.3. Attach the ZIP in My experts → Create expert team and request private import. Stop on conflicting names. The lead dispatches and returns work. Production and review require two other seats. Groups are context only; concurrency depends on the host.']],
+     grok:[['Grok Bot 账号内引导包','Grok Bot guided setup pack'],['本入口提供 Grok 引导式建队，整队原生导入尚未验证。打开 ZIP 中的 Start-here.html，在自己的主 Bot 对话附上方案。先预览再就缺席逐项确认；缺少代办能力时，按包内步骤手建。导出不会登录、建 Bot 或创建群。','This entry provides guided Grok setup. Native whole-team import has not been verified. Open Start-here.html and attach the plan in your primary Bot’s chat. Preview first, then approve missing seats. Follow the manual steps if the host cannot create them. Downloading performs no login, Bot creation or group setup.']]
+--- a/web/adapters.js
++++ b/web/adapters.js
+@@ -68,7 +68,7 @@
+     const ref = {teamId:team.id, roles:roster, groups:team.groups, workflow:team.workflow};
+     const brief = [
+       '在交回席（workflow.deliver）的对话发第一单。已获制作委托后，若派工席不同，交回席向部门派工席委托，后者组织制作和独审并把核准文件送回交回席。名称重复时核本次新部门内的席位标识。',
+-      '群成员与用途仅作组织说明，本包不创建聊天室。导入前先看预览并核同名团队；重复导入会另建。首次导入时核对各席本机“询问 / Ask”设置和专用目录。已有授权的任务直接在既定范围内推进；仅当宿主实际要求新增权限时，请本人处理对应一步。',
++      '群成员与用途仅作组织说明，本包不创建聊天室。导入前先看预览并核同名团队；重复导入会另建。包内 ask 仅为建议。首次用原生机器人“资料 → 权限”核岗位默认和专用目录；另核派单首席当前对话、实际新委派子会话及复用旧对话的权限。默认 Ask 不覆盖已有显式 Full，Ask 不等于完全只读。权限由用户本人决定，详见 SETUP。 / Package ask is advisory. First check each Bot’s default in native Profile → Permissions and its work folder; separately check the dispatching lead’s current chat, actual new delegated chats and reused chats. Default Ask leaves existing explicit Full unchanged. Ask is not fully read-only. Permissions remain the user’s decision; see SETUP. 已有授权的任务直接在既定范围内推进；仅当宿主实际要求新增权限时，请本人处理对应一步。',
+       intake, workLanguage, scope, workflowScope, 'Configuration data (JSON):', quotedData(ref)
+     ].join('\n\n');
+     if (bytes(brief)>24000) error('所有席位和群籍超过该版部门说明的 24,000 字节上限。请精简或改用中性文件保全。','The complete roster exceeds the 24,000-byte department brief limit; shorten it or keep the neutral format.');

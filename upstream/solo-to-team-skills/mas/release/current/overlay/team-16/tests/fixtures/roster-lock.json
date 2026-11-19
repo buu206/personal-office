@@ -1,0 +1,134 @@
+{
+  "format": "solo-to-team.public-roster-lock",
+  "version": 1,
+  "roles": [
+    {
+      "id": "seat-chief",
+      "name": "首席执行官"
+    },
+    {
+      "id": "seat-technology",
+      "name": "技术官"
+    },
+    {
+      "id": "seat-intelligence",
+      "name": "情报官"
+    },
+    {
+      "id": "seat-daily-affairs",
+      "name": "生活官"
+    },
+    {
+      "id": "seat-learning",
+      "name": "学习官"
+    },
+    {
+      "id": "seat-review",
+      "name": "审核官"
+    },
+    {
+      "id": "seat-inspection",
+      "name": "督查官"
+    },
+    {
+      "id": "seat-creative",
+      "name": "创意官"
+    },
+    {
+      "id": "seat-production",
+      "name": "生产官"
+    },
+    {
+      "id": "seat-legal-business",
+      "name": "法商官"
+    },
+    {
+      "id": "seat-analysis-specialist",
+      "name": "分析专家"
+    },
+    {
+      "id": "seat-network-engineer",
+      "name": "网络工程师"
+    },
+    {
+      "id": "seat-implementation-engineer",
+      "name": "实施工程师"
+    },
+    {
+      "id": "seat-art-editor",
+      "name": "美术编辑"
+    },
+    {
+      "id": "seat-review-assistant",
+      "name": "审核助理"
+    },
+    {
+      "id": "seat-intelligence-adviser",
+      "name": "情报顾问"
+    }
+  ],
+  "groups": [
+    {
+      "id": "group-operations",
+      "name": "运营署",
+      "members": [
+        "seat-chief",
+        "seat-review",
+        "seat-intelligence",
+        "seat-creative",
+        "seat-technology",
+        "seat-production"
+      ]
+    },
+    {
+      "id": "group-creation",
+      "name": "创作院",
+      "members": [
+        "seat-chief",
+        "seat-creative",
+        "seat-production",
+        "seat-legal-business",
+        "seat-review"
+      ]
+    },
+    {
+      "id": "group-internal-affairs",
+      "name": "内务部",
+      "members": [
+        "seat-chief",
+        "seat-learning",
+        "seat-daily-affairs"
+      ]
+    },
+    {
+      "id": "group-advisers",
+      "name": "顾问团",
+      "members": [
+        "seat-chief",
+        "seat-review",
+        "seat-intelligence",
+        "seat-intelligence-adviser",
+        "seat-review-assistant"
+      ]
+    },
+    {
+      "id": "group-engineering",
+      "name": "机务处",
+      "members": [
+        "seat-chief",
+        "seat-review",
+        "seat-technology",
+        "seat-network-engineer",
+        "seat-implementation-engineer"
+      ]
+    },
+    {
+      "id": "group-consultation",
+      "name": "参谋室",
+      "members": [
+        "seat-chief",
+        "seat-analysis-specialist"
+      ]
+    }
+  ]
+}

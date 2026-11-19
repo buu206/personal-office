@@ -1,0 +1,25 @@
+--- frozen/mas/source/web/adapters.js
++++ candidate/team-16/source/web/adapters.js
+@@ -91,7 +91,7 @@
+       outcomes:['在原会话取回实际交付和独立审核过的版本。'],setupMinutes:3,
+       requirements:{apps:[],capabilities:[]},team:{name:team.name,leader:team.workflow.dispatch,brief},agents
+     }};
+-    if(bytes(JSON.stringify(pkg))>4*1024*1024)
++    if(bytes(json(pkg))>4*1024*1024)
+       error('OpenMaus 文件超出 4 MiB，请缩小头像或保留中性文件。','This OpenMaus document exceeds its 4 MiB package limit.');
+     return pkg;
+   }
+--- frozen/mas/source/web/rooms.js
++++ candidate/team-16/source/web/rooms.js
+@@ -25,8 +25,9 @@
+     if(!sections[1]?.startsWith(prefix))throw Error('基础部门生成器版本不符，已停止。');
+     sections[1]='只创建导入预览所列的已选择群聊；其他群仅留作团队说明。群籍与应答席不授予管理、审批或对外行动权限。'+sections[1].slice(prefix.length);
+     doc.package.team.brief=sections.join('\n\n');doc.package.rooms=rooms;
+-    if(bytes(doc.package.team.brief)>24000||bytes(JSON.stringify(doc))>4*1024*1024)throw Error('超出宿主的部门说明或 4 MiB 包体边界。请保留中性源文件并减少本次群或素材。');
+-    return new Blob([JSON.stringify(doc,null,2)+'\n'],{type:'application/json'});
++    const payload=JSON.stringify(doc,null,2)+'\n';
++    if(bytes(doc.package.team.brief)>24000||bytes(payload)>4*1024*1024)throw Error('超出宿主的部门说明或 4 MiB 包体边界。请保留中性源文件并减少本次群或素材。');
++    return new Blob([payload],{type:'application/json'});
+   }
+   return {parse,build};
+ })();

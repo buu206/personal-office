@@ -1,0 +1,13 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>个人办公室 · 真实AI验收</title>
+<body><main><h1>真实AI文档验收台</h1><p>阶段2-2临时验收页。真实调用DeepSeek；正式草地工作营尚未接入。单任务最多1元，测试累计最多10元。</p>
+<p id="capabilities" role="status">正在连接本机服务…</p>
+<form id="task-form"><p><label>任务要求<br><textarea id="title" rows="3" cols="65" maxlength="2000" required></textarea></label></p>
+<p><label>验收标准<br><textarea id="criteria" rows="2" cols="65" maxlength="1500" required></textarea></label></p>
+<p><label>本次公开或脱敏材料<br><textarea id="material" rows="7" cols="65" maxlength="12000"></textarea></label></p>
+<p><label><input id="consent" type="checkbox" required>我确认本次材料可发送给DeepSeek，任务和成果保存在本机。</label></p>
+<button type="submit" id="create">保存任务（不调用模型）</button></form>
+<p id="notice" role="status"></p><h2>已保存任务</h2><div id="tasks"></div>
+<section id="detail" hidden><h2 id="task-title"></h2><p id="status"></p>
+<button id="run">开始真实执行</button> <button id="retry">重试失败步骤</button> <button id="cancel">取消后续步骤</button>
+<p>取消不会撤销已经发出的模型请求，可能仍有费用。待审核/审核未通过的文档会明确标记。</p><a id="download" hidden>下载当前文档 Markdown</a><pre id="output"></pre></section>
+</main><script src="/check.js"></script></body></html>
